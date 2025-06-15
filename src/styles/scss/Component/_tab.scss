@@ -1,0 +1,62 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.js-tab-panel {
+  // display: none;
+  opacity: 0;
+  transition: transform .1s ease,opacity .3s ease, max-height 1s ease;
+
+  &.is-tab-current {
+    display: block !important;
+  }
+
+  &.is-fade {
+    opacity: 1;
+    max-height: var(--panel-h);
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.swich-tab-list {
+  display: flex;
+  align-items: flex-end;
+  .tab-btn {
+    flex: 1;
+    color: var(--color-dark-a30);
+    text-align: center;
+    border-bottom: 3px solid var(--color-dark-a30);
+    padding: 8px;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0;
+      height: 3px;
+      translate: 0 100%;
+      background-color: var(--color-dark);
+      transition: .2s all;
+    }
+    &.is-tab-current {
+      color: var(--color-dark);
+      &::before {
+        width: 100%;
+      }
+    }
+
+    ._text {
+      display: inline-block;
+      font-weight: 700;
+      text-align: left;
+      @include letter-indent(.2em);
+    }
+  }//.tab-btn
+}

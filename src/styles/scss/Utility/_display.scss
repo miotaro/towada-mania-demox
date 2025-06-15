@@ -1,0 +1,42 @@
+@use "../Global/" as *;
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+$displays: none !default;
+@each $breakpoint in map-keys($breakpoints-re) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints-re);
+
+    @each $value in $displays {
+      .u#{$infix}-hidden { display: $value !important; }
+    }
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.u-xl-visible {
+  display: none;
+  @include mq(xl) { display: block; }
+}
+
+.u-lg-visible {
+  display: none;
+  @include mq(lg) { display: block; }
+}
+
+.u-md-visible {
+  display: none;
+  @include mq(md) { display: block; }
+}
+
+.u-sm-visible {
+  display: none;
+  @include mq(sm) { display: block; }
+}

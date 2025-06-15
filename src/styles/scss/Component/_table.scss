@@ -1,0 +1,34 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.dl-table {
+  display: table;
+  border-collapse:collapse;
+  width: 100%;
+  ._row {
+    display: table-row;
+  }
+  ._head,._desc {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.sb-info-table {
+  border-top: .9px solid var(--color-dark-a30);
+  ._row {
+    border-bottom: .9px solid var(--color-dark-a30);
+  }
+  ._head,._desc {
+    padding: 20px 5px;
+  }
+}

@@ -1,0 +1,59 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.dpc-left,.dpc-right {
+  display: flex;
+  align-items: center;
+  width: calc(50vw - (var(--phone-w) / 2));
+  height: 100dvh;
+  position: fixed;
+  z-index: 205;
+  @include mq(940px) { display: none; }
+}
+
+.dpc-left {
+  inset: 0;
+  justify-content: center;
+}
+
+.dpc-right {
+  top: 0; right: 0;
+  padding-left: 5%;
+}
+
+
+.dpc-logo {
+  width: 162px;
+  fill: var(--color-navy);
+}
+
+.dpc-sns {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 30px;
+  width: 100%;
+  padding: 15px 0 15px 30px;
+  position: relative;
+  z-index: 3;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 50%; right: 0;
+    translate: 0 -50%;
+  }
+
+  &__item {
+    position: relative;
+    .app-icon {
+      display: block;
+      width: 35px;
+    }
+  }
+}

@@ -1,0 +1,222 @@
+@use "../Global/index" as *;
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+// .--cat {
+//   &-gourmet,&-shop { background-color: var(--color-orange-a50); }
+//   &-event,&-product { background-color: var(--color-blue-a50); }
+//   &-onsen,&-menu { background-color: var(--color-pink-a50); }
+//   &-people { background-color: var(--color-yellow); }
+// }
+
+/* ==========================================================================
+
+========================================================================== */
+
+.article-list {
+  border-bottom: 1px solid var(--color-navy);
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.article-card {
+  $this: &;
+  --ac-gap: 15px;
+  background-color: white;
+  border-top: 1px solid var(--color-navy);
+  &__link {
+    display: flex;
+    gap: var( --ac-gap);
+    padding: 40px var(--cs-gutter);
+    position: relative;
+    transition: .2s opacity .2s translate;
+    &:hover {
+      opacity: .8;
+    }
+
+    #{$this}.--card-lg & {
+      flex-direction: column;
+    }
+
+    #{$this}.--card-sm & {
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    #{$this}.--PR & {
+      background-color: var(--color-yellow-a10);
+      padding-left: 40px;
+      &::before,&::after {
+        position: absolute;
+        top: 5%; left: 0;
+        width: 25px;
+        height: 90%;
+      }
+      &::before {
+        content: "PR";
+        display: grid;
+        place-items: center;
+        background: var(--multi-gradient);
+        border-radius: 0 15px 15px 0;
+        @extend %fs-Roboto;
+        color: white;
+        font-weight: 700;
+        line-height: 1;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+      }
+      &::after {
+        content: "";
+        display: block;
+        border-radius: 0 15px 15px 0;
+        border: 1px solid transparent;
+        background-image: var(--multi-gradient-tr);
+        background-origin: border-box;
+        background-clip: border-box;
+        -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+        -webkit-mask-clip: padding-box, border-box;
+        -webkit-mask-composite: destination-out;
+        mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+        mask-clip: padding-box, border-box;
+        mask-composite: exclude;
+      }
+    }
+  }//&__link
+
+  .badge-new {
+    position: absolute;
+    top: 30px; left: var(--cs-gutter);
+  }
+
+  &__cat {
+    position: absolute;
+    top: 0; right: 0;
+    font-size: rem(11px);
+    font-weight: 700;
+    text-box-trim: trim-both;
+    line-height: 1;
+    padding: 5px var(--cs-gutter) 4px 1.5em;
+    border-left: 1px solid var(--color-navy);
+    border-bottom: 1px solid var(--color-navy);
+    box-shadow: 2px 3px 0 var(--color-navy);
+    border-radius: 0 0 0 12px;
+    #{$this}[data-category="gourmet"] &,
+    #{$this}[data-category="shop"] & {
+      background-color: var(--color-orange-a50);
+    }
+    #{$this}[data-category="event"] &,
+    #{$this}[data-category="product"] & {
+      background-color: var(--color-blue-a50);
+    }
+    #{$this}[data-category="hotSpring"] &,
+    #{$this}[data-category="menu"] & {
+      background-color: var(--color-pink-a50);
+    }
+    #{$this}[data-category="people"] & {
+      background-color: var(--color-yellow);
+    }
+
+    #{$this}[data-category=""] &,
+    #{$this}:not([data-category]) {
+      background-color: white;
+    }
+  }//&__cat
+
+  &__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    #{$this}.--card-sm & {
+      width: 93px;
+      aspect-ratio: 1 / 1.05;
+    }
+  }//&__thumb
+
+  &__ttlcont {
+    #{$this}.--card-sm & {
+      flex: 1;
+    }
+  }//&__ttlcont
+
+  &__title {
+    font-size: rem(17px);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .post-contributor {
+    margin-top: var( --ac-gap);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    #{$this}.--card-sm & {
+      width: 100%;
+    }
+
+    ._tag {
+      font-size: rem(11px);
+      color: var(--color-navy-a60);
+      background-color: var(--color-navy-a10);
+      border: 1px solid var(--color-navy-a60);
+      border-radius: 5px;
+      padding: 4px .7em 3px;
+      text-box-trim: trim-both;
+    }
+  }//&__tags
+
+  &__time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: .3em;
+    font-size: rem(16px);
+    margin-top: var( --ac-gap);
+    ._icon {
+      width: 1.1em;
+      translate: 0 -5%;
+    }
+  }//&__time
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.banner-card {
+  $this: &;
+  border-top: 1px solid var(--color-navy);
+  background-color: var(--color-yellow-a10);
+  padding: 40px var(--cs-gutter);
+  &__link {
+    display: block;
+    border: 1px solid var(--color-dark);
+    position: relative;
+    transition: .2s opacity;
+    &:hover {
+      opacity: .8;
+    }
+
+    &::before {
+      content: "PR";
+      display: block;
+      @extend %fs-Roboto;
+      color: var(--color-navy);
+      font-weight: 700;
+      line-height: 1;
+      padding: 2px 7px 3px;
+      border-radius: 0 5px 5px 0;
+      background-color: white;
+      position: absolute;
+      top: 10px; left: -1px;
+    }
+  }//&__link
+}

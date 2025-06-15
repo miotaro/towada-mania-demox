@@ -1,0 +1,208 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+@use "var" as *;
+@use "mediaquery" as *;
+
+
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Starts at zero
+// Used to ensure the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map, $map-name: "$breakpoints") {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+
+/*----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------*/
+
+@function breakpoint-next($name, $breakpoint: $breakpoint, $breakpoint-names: map-keys($breakpoint)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoint: $breakpoints) {
+  $min: map-get($breakpoint, $name);
+  @return if($min != 0, $min, null);
+}
+
+// @function breakpoint-max($name, $breakpoint: $breakpoints) {
+//   $next: breakpoint-next($name, $breakpoint);
+//   @return if($next, breakpoint-min($next, $breakpoint) - .02, null);
+// }
+
+@function breakpoint-max($name, $breakpoint: $breakpoints) {
+  $max: map-get($breakpoint, $name);
+  @return if($max != 0, $max, null);
+}
+
+
+@function breakpoint-infix($name, $breakpoint: $breakpoints) {
+  @return if(breakpoint-min($name, $breakpoint) == null, "", "-#{$name}");
+}
+
+@mixin media-breakpoint-up($name, $breakpoint: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoint);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name, $breakpoint: $breakpoints) {
+  $max: breakpoint-max($name, $breakpoint);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoint: $breakpoints) {
+  $min: breakpoint-min($lower, $breakpoint);
+  $max: breakpoint-max($upper, $breakpoint);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoint) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-only($name, $breakpoint: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoint);
+  $max: breakpoint-max($name, $breakpoint);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoint) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoint) {
+      @content;
+    }
+  }
+}
+
+
+/*----------------------------------------------------------------------------------
+  text-stroke
+----------------------------------------------------------------------------------*/
+
+@function text-stroke($size: 2, $color: #fff, $correction: 0) {
+  $size-rounded: round($size);
+  $size-rest:    $size-rounded - $size;
+
+$radius: $size - $correction;
+$stroke: ();
+
+@for $i from -$size-rounded through $size-rounded {
+    $i: $i + $size-rest;
+
+  @for $k from -$size-rounded through $size-rounded {
+      $k: $k + $size-rest;
+
+    $x: $k;
+    $y: $i;
+
+    @if $k > 0 {
+      $x: $k - 0.5;
+    } @else if $k < 0 {
+      $x: $k + 0.5;
+    }
+
+    @if $i > 0 {
+      $y: $i - 0.5;
+    } @else if $i < 0 {
+      $y: $i + 0.5;
+    }
+
+    @if ($x*$x + $y*$y <= $radius*$radius) {
+      $stroke: append($stroke, $i*1px $k*1px 0 $color, comma);
+    }
+  }
+}
+
+@return $stroke;
+}
+
+@mixin text-stroke($size: 2, $color: #fff, $correction: 0) {
+text-shadow: text-stroke($size, $color, $correction);
+}
+
+
+/*----------------------------------------------------------------------------------
+  数値から単位を取り除く
+----------------------------------------------------------------------------------*/
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return (math.div($number, ($number * 0 + 1)));
+  }
+
+  @return $number;
+}
+
+/*----------------------------------------------------------------------------------
+  pxをremに変換
+----------------------------------------------------------------------------------*/
+
+// @function rem($size) {
+//   @return (math.div($size, 16)) + rem;
+// }
+
+@function rem($px, $base: 16px) {
+  $value: $px;
+
+  // 単位がpx以外の場合は警告を出してそのまま返す
+  @if (unit($px) != 'px') {
+    @warn 'rem()の引数にpx以外の値を指定しても計算できません';
+    @return $value;
+  }
+
+  $value: (math.div(strip-unit($px), strip-unit($base))) * 1rem;
+
+  @return $value;
+}
+
+//呼び出し
+//rem(ここにpxサイズを入れる)

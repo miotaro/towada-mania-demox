@@ -1,0 +1,222 @@
+@use "../Global/index" as *;
+
+
+/* ==========================================================================
+  SVG icon
+========================================================================== */
+
+.svg-defs {
+  #icon-clock {
+    .st0 {
+      fill: #fff500;
+    }
+
+    .st0, .st1 {
+      stroke: #000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.9px;
+    }
+
+    .st1 {
+      fill: none;
+    }
+  }
+}
+
+
+
+/* ==========================================================================
+  background-color
+========================================================================== */
+
+.--navy { background-color: var(--color-navy); }
+.--blue { background-color: var(--color-blue); }
+.--pink { background-color: var(--color-pink); }
+.--yellow { background-color: var(--color-yellow); }
+.--orange { background-color: var(--color-orange); }
+
+.--blue-a50 { background-color: var(--color-blue-a50); }
+.--pink-a50 { background-color: var(--color-pink-a50); }
+.--yellow-a50 { background-color: var(--color-yellow-a50); }
+.--orange-a50 { background-color: var(--color-orange-a50); }
+
+.--yellow-a10 { background-color: var(--color-yellow-a10); }
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.phdc-bg {
+  position: relative;
+  &::before,&::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    user-select: none;
+  }
+
+  &::before {
+    background-image: url(../../../../public/img/ph_bg.svg);
+    background-repeat: no-repeat;
+    background-size: 110% auto;
+    background-position: center 18%;
+    opacity: .5;
+    z-index: 1;
+  }
+
+  &::after {
+    background-color: transparent;
+    // background-image:
+    //   radial-gradient(#000 20%, transparent 20%),
+    //   radial-gradient(#000 20%, transparent 20%);
+    background-image:
+      radial-gradient(circle, #000 1.5px, transparent 1.5px),
+      radial-gradient(circle, #000 1.5px, transparent 1.5px);
+    background-position: 0 0, 5px 5px;
+    background-size: 10px 10px;
+    mix-blend-mode: overlay;
+    z-index: 2;
+  }
+
+  &.--pink {
+    &::after { opacity: .4; }
+  }
+
+  &.--orange {
+    &::after { opacity: .2; }
+  }
+}
+
+
+.mcdots-bg {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    user-select: none;
+    background-color: transparent;
+    // background-image:
+    //   radial-gradient(#000 20%, transparent 20%),
+    //   radial-gradient(#000 20%, transparent 20%);
+    background-image:
+      radial-gradient(circle, #000 1.5px, transparent 1.5px),
+      radial-gradient(circle, #000 1.5px, transparent 1.5px);
+    background-position: 0 0, 5px 5px;
+    background-size: 10px 10px;
+    mix-blend-mode: overlay;
+  }
+
+  &.--pink {
+    &::before { opacity: .4; }
+  }
+
+  &.--orange {
+    &::before { opacity: .2; }
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.badge-new {
+  display: grid;
+  width: 54px;
+  ._text {
+    grid-area: 1/1;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    font-size: rem(14px);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+  svg {
+    grid-area: 1/1;
+    fill: #ED1C24;
+    stroke: var(--color-navy);
+    stroke-width: 1px;
+    animation: 16s linear infinite rotation;
+  }
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.post-contributor {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  ._icon {
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    img { vertical-align: initial; }
+  }
+  ._name {
+    color: var(--color-dark-a60);
+    font-size: rem(11px);
+  }
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.character-grip {
+  position: relative;
+  &::before {
+
+  }
+
+  ._character {
+    aspect-ratio: 57 / 20;
+    overflow: hidden;
+    span {
+      display: block;
+      width: 36%;
+      margin-inline: auto;
+    }
+  }
+
+  ._hand-grip {
+    position: relative;
+    &::before,&::after {
+      content: "";
+      display: block;
+      aspect-ratio: 23 / 45;
+      position: absolute;
+      top: 0;
+      background-image: url(../../../../public/img/character_hand.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      width: 23px;
+      z-index: 4;
+    }
+
+    &::before {
+      left: 0;
+      translate: -45% 40%;
+    }
+
+    &::after {
+      right: 0;
+      scale: -1 1;
+      translate: 45% 10%;
+    }
+  }//._hand-grip
+}

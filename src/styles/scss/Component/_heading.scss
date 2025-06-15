@@ -1,0 +1,77 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.hdg-mcfb-bar {
+
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.bubchar-hdg {
+  $this: &;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  &.--right {
+    flex-direction: row-reverse;
+  }
+
+  &__title {
+    display: grid;
+    place-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    #{$this}.--left & { margin: 0 -5% 10px 0; }
+    #{$this}.--right & { margin: 0 0 2px -2%; }
+
+    ._text {
+      @extend %fs-Dela-Gothic;
+      color: var(--color-pink);
+      line-height: 1;
+    }
+
+    &.--type-01 {
+      width: 10.5rem;
+      aspect-ratio: 120 / 77;
+      background-image: url(../../../../public/img/bubble_type01.png);
+      ._text {
+        rotate: -14deg;
+        translate: 0 10%;
+        font-size: rem(15px);
+        text-align: center;
+        span { font-size: 170%; }
+      }
+    }//&.--type-01
+
+    &.--type-02 {
+      width: 8.5rem;
+      aspect-ratio: 15 / 11;
+      background-image: url(../../../../public/img/bubble_type02.png);
+      rotate: 10deg;
+      ._text {
+        translate: 0 -10%;
+        font-size: rem(22px);
+      }
+    }// &.--type-02
+  }//&__title
+
+  &__chara {
+    display: block;
+    width: 22%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    img {
+      position: relative;
+      left: 50%;
+      translate: -50% 0;
+    }
+  }//&__chara
+}

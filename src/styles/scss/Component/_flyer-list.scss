@@ -1,0 +1,67 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.flyer-list {
+  $this: &;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px 10px;
+
+  &__card {
+    &.--card-lg {
+      grid-column: span 2;
+    }
+
+    a {
+      display: block;
+      position: relative;
+      transition: .2s opacity .2s translate;
+      &:hover {
+        opacity: .8;
+        .flyer-info__title {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ._label {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-pink);
+      clip-path: polygon(0 0, 0 100%, 100% 0);
+      position: absolute;
+      top: 0; left: 0;
+      span {
+        font-size: 11px;
+        font-weight: 700;
+        color: white;
+        translate: -30% -30%;
+        rotate: -45deg;
+      }
+    }
+
+    ._thumb {
+      aspect-ratio: 111 / 64;
+      margin-bottom: 10px;
+    }
+  }//&__card
+}
+
+
+.flyer-info {
+  padding-inline: 3px;
+  &__date {
+    font-size: rem(12px);
+    color: var(--color-dark-a70);
+  }
+
+  &__title {
+    font-size: rem(17px);
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,117 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.shop-head {
+  display: flex;
+  align-items: stretch;
+  column-gap: 10px;
+  &__thumb {
+    display: block;
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--color-navy);
+  }
+
+  &__title {
+    flex: 1;
+    height: fit-content;
+    margin-block: auto;
+    font-size: rem(22px);
+    font-weight: 700;
+    line-height: 1.2;
+    padding-top: .1em;
+  }
+}
+
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.flyer-btn-group {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.shop-flyers {
+  .shop-head {
+    margin-bottom: 30px;
+  }
+}
+
+.flyer-detail {
+  .shop-head {
+    padding-block: 30px;
+  }
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.flyer-view {
+  margin-top: 15px;
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    a {
+      --gray: #e6e6e6;
+      display: block;
+      border: 1px solid var(--gray);
+      background-image:
+      linear-gradient(45deg, var(--gray) 25%, transparent 25%),
+      linear-gradient(135deg, var(--gray) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--gray) 75%),
+      linear-gradient(135deg, transparent 75%, var(--gray) 75%);
+      background-size:25px 25px;
+      background-position:0 0, 12.5px 0, 12.5px -12.5px, 0px 12.5px;
+      padding: 15px;
+      position: relative;
+
+      &::before,&::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%; left: 50%;
+        translate: -50% -50%;
+        opacity: 0;
+        transition: .1s opacity;
+      }
+
+      &::before {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(var(--color-navy-rgb) / .6);
+      }
+
+      &::after {
+        width: 50px;
+        aspect-ratio: 1 / 1;
+        background-image: url('data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20viewBox%3D%220%200%2048%2048%22%3E%20%3Cpath%20class%3D%22st0%22%20d%3D%22M41.4140625%2C41.4140625c-.390625.390625-.9023438.5859375-1.4140625.5859375s-1.0234375-.1953125-1.4140625-.5859375l-8.0996094-8.0996094c-.390686-.3901978-.5859985-.9019775-.5859375-1.4138794-.000061-.5117798.1952515-1.0235596.5859375-1.4142456%2C2.2666016-2.2675781%2C3.5146484-5.28125%2C3.5146484-8.4853516%2C0-3.2055664-1.2470703-6.2192383-3.5136719-8.4858398s-5.2802734-3.5151367-8.4853516-3.5151367c-6.6171875-.0004883-12.0004883%2C5.3823242-12.0009766%2C11.9990234-.0004883%2C6.6162109%2C5.3823242%2C12%2C11.9995117%2C12.0009766%2C1.0610352-.0009766%2C2.1196289-.1396484%2C3.1450195-.4130859%2C1.0664062-.2861328%2C2.1630859.3505859%2C2.4472656%2C1.4179688.2841797%2C1.0664062-.3505859%2C2.1630859-1.4179688%2C2.4472656-1.359375.3623047-2.7636719.546875-4.1733398.5478516-8.8242188-.0009766-16.0009766-7.1787109-16.0004883-16.0009766.0004883-8.8217773%2C7.1782227-15.9990234%2C16-15.9990234h.0009766c4.2744141.0004883%2C8.2919922%2C1.6650391%2C11.3134766%2C4.6870117%2C3.0224609%2C3.0224609%2C4.6865234%2C7.0405273%2C4.6855469%2C11.3144531%2C0%2C3.59729-1.1928101%2C7.0064087-3.3701782%2C9.8012085l6.7832642%2C6.7832642c.78125.78125.78125%2C2.046875%2C0%2C2.828125ZM27%2C20h-3v-3c0-1.1044922-.8955078-2-2-2s-2%2C.8955078-2%2C2v3h-3c-1.1044922%2C0-2%2C.8955078-2%2C2s.8955078%2C2%2C2%2C2h3v3c0%2C1.1044922.8955078%2C2%2C2%2C2s2-.8955078%2C2-2v-3h3c1.1044922%2C0%2C2-.8955078%2C2-2s-.8955078-2-2-2Z%22%20style%3D%22fill%3A%20%23FFF%3B%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+      }
+
+      &:hover {
+        &::before { opacity: 1; }
+        &::after { opacity: .8; }
+      }
+    }
+  }//&__item
+}

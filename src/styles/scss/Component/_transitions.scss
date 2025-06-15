@@ -1,0 +1,15 @@
+@use "../Global/index" as *;
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.hover-bounce-in {
+  transform: perspective(1px) translateZ(0);
+  transition-duration: .3s;
+}
+.hover-bounce-in:hover, .hover-bounce-in:focus, .hover-bounce-in:active {
+  scale: 1.15;
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}

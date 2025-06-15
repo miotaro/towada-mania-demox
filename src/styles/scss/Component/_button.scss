@@ -1,0 +1,135 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+  button base
+========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 10px;
+  white-space: nowrap;
+  border-radius: 5rem;
+  transition: background-color .1s,
+              color .1s,
+              box-shadow .1s,
+              border-color .1s;
+
+  &:hover {
+    transition: transform .1s;
+  }
+  &:active {
+    transform: translateY(1px) scale(.98);
+  }
+
+  &-md {
+    min-width: 165px;
+    height: 50px;
+    font-size: rem(16px);
+    font-weight: 700;
+    padding: .5em 1.3em;
+  }//&-md
+
+  &-primary {
+    color: white;
+    background-color: var(--color-blue);
+    border: 1.5px solid var(--color-navy);
+    .btn-arrow {
+      &::before,&::after {
+        background-color: white;
+      }
+    }
+    &:hover {
+      background-color: var(--color-blue-a50);
+    }
+  }//&-primary
+
+  &-secondary {
+    color: var(--color-navy);
+    background-color: var(--color-pink);
+    border: 1.5px solid var(--color-navy);
+    .btn-arrow {
+      &::before,&::after {
+        background-color: var(--color-navy);
+      }
+    }
+    &:hover {
+      background-color: var(--color-pink-a50);
+    }
+  }//&-secondary
+
+  &-white {
+    color: var(--color-navy-a50);
+    background-color: white;
+    border: 1.5px solid var(--color-navy-a50);
+    .btn-arrow {
+      &::before,&::after {
+        background-color: var(--color-navy-a50);
+      }
+    }
+    &:hover {
+      background-color: var(--color-navy-a10);
+    }
+  }//&-white
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+
+.btn-fulled {
+  display: flex;
+  width: 100%;
+}
+
+.btn-sm-fulled {
+  @include mq(sm) {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.btn-arrow {
+  --width: 7px;
+  width: var(--width);
+  position: relative;
+
+  .btn & {
+    margin-left: auto;
+  }
+
+  &::before,&::after {
+    --bdrsize: 1.5px;
+    content: "";
+    display: block;
+    width: var(--width);
+    height: var(--bdrsize);
+    border-radius: 3px;
+    position: absolute;
+    transform-origin: right center;
+  }
+
+  &::before {
+    rotate: 45deg;
+    translate: 0 calc(var(--bdrsize) / 4);
+  }
+
+  &::after {
+    rotate: -45deg;
+    translate: 0 calc(var(--bdrsize) / 4 * -1);
+  }
+}

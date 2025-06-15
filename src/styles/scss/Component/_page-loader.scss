@@ -1,0 +1,210 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.page-transition {
+  $this: &;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  .transition-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;left: 0;
+    mask-image: linear-gradient(#000, #000), url(../../../../public/img/mask_circle.png);
+    mask-repeat: no-repeat;
+    mask-position: 0 0, center center;
+    mask-size: 100% 100%, 0 0;
+    mask-composite: exclude;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    animation-fill-mode: forwards;
+    will-change: mask-size;
+
+    &.--navy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0; left: 0;
+        user-select: none;
+        background-color: transparent;
+        background-image:
+          radial-gradient(circle, #303D81 2px, transparent 2px),
+          radial-gradient(circle, #303D81 2px, transparent 2px);
+        background-position: 0 0, 7px 7px;
+        background-size: 14px 14px;
+        // mix-blend-mode: overlay;
+        opacity: .3;
+      }
+
+      ._logo {
+        width: 20%;
+        max-width: 250px;
+        min-width: 150px;
+        position: fixed;
+        top: 50svh; left: 50%;
+        translate: -50% -50%;
+        z-index: 5;
+      }
+    }
+    &.--pink { z-index: 3; }
+    &.--orange { z-index: 2; }
+    &.--yellow { z-index: 1; }
+  }//.transition-mask
+
+
+  .transition-loader {
+    width: 120px;
+    position: fixed;
+    top: 50svh; left: 50%;
+    translate: -50% -50%;
+    filter: drop-shadow(0px 9px 13px rgb(var(--color-dark-rgb) / .6));
+    z-index: 5;
+    @include mq(sm) {
+      width: 90px;
+    }
+
+    ._inner {
+      position: relative;
+    }
+    ._chara,._bubble {
+      animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      animation-fill-mode: forwards;
+    }
+    ._bubble {
+      display: grid;
+      width: 120%;
+      position: absolute;
+      top: 0;right: 0;
+      translate: 50% -65%;
+      transform-origin: 20% bottom;
+
+      ._bg,._text {
+        grid-area: 1/1;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+    ._text {
+      width: 60%;
+      animation:blink .4s ease-in-out infinite alternate;
+      translate: 1% -8%;
+    }
+
+    &.is-stop {
+      ._bubble {
+        animation-name: bubbleScaleAnime;
+        animation-duration: .2s;
+      }
+    }//&.is-stop
+  }//.transition-loader
+
+
+  &.is-loaded {
+    .transition-mask {
+      animation-name: maskAnimation;
+      animation-duration: 1s;
+      @include mq(sm) { animation-name: maskAnimation-mo; }
+      &.--pink { animation-delay: .02s; }
+      &.--orange { animation-delay: .04s; }
+      &.--yellow { animation-delay: .06s; }
+    }//.transition-mask
+
+    .transition-loader {
+      ._chara {
+        animation-name: charaScaleAnime;
+        animation-duration: .3s;
+      }
+    }//.transition-loader
+  }//&.is-loaded
+
+  &.is-transition {
+    .transition-mask {
+      mask-size: 100% 100%, 200vw 200vw;
+      animation-name: maskAnimation-re;
+      animation-duration: .3s;
+      @include mq(sm) {
+        mask-size: 100% 100%, 200vh 200vh;
+        animation-name: maskAnimation-mo-re;
+      }
+      &.--orange { animation-delay: .02s; }
+      &.--pink { animation-delay: .04s; }
+      &.--navy { animation-delay: .06s; }
+    }//.transition-mask
+
+    .transition-loader {
+      ._chara {
+        animation-name: charaScaleAnime;
+        animation-direction: reverse;
+        animation-duration: .3s;
+      }
+
+      &.is-start {
+        ._bubble {
+          scale: 0;
+          animation-name: bubbleScaleAnime-re;
+          animation-duration: .2s;
+          animation-delay: .3s;
+        }
+      }//&.is-stop
+    }//.transition-loader
+  }//&.is-transition
+}
+
+
+
+@keyframes maskAnimation {
+  0% { mask-size: 100% 100%, 0 0; }
+  100% { mask-size: 100% 100%, 200vw 200vw; }
+}
+
+@keyframes maskAnimation-mo {
+  0% { mask-size: 100% 100%, 0 0; }
+  100% { mask-size: 100% 100%, 200vh 200vh; }
+}
+
+
+@keyframes maskAnimation-re {
+  0% { mask-size: 100% 100%, 200vw 200vw; }
+  100% { mask-size: 100% 100%, 0 0; }
+}
+
+@keyframes maskAnimation-mo-re {
+  0% { mask-size: 100% 100%, 200vh 200vh; }
+  100% { mask-size: 100% 100%, 0 0; }
+}
+
+
+@keyframes blink {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes charaScaleAnime {
+  0% { scale: 1; opacity: 1; }
+  100% { scale: 1.5; opacity: 0; }
+}
+
+@keyframes bubbleScaleAnime {
+  0% { scale: 1; }
+  100% { scale: 0; }
+}
+
+@keyframes bubbleScaleAnime-re {
+  0% { scale: 0; }
+  100% { scale: 1; }
+}

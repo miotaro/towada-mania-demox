@@ -1,0 +1,141 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+  scroll-fadein
+========================================================================== */
+
+
+.js-scroll-fadein {
+  &:not([data-fade-type]) {
+    --transX: 0;
+    --transY: 20%;
+    --delay: 0s;
+    --duration: .6s;
+    opacity: 0;
+    translate: var(--transX) var(--transY);
+    transition: translate var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay),
+                  opacity var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay);
+    &.is-show {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  &[data-fade-type="fadein-left"] {
+    --transX: -20%;
+    --delay: 0s;
+    --duration: .6s;
+    opacity: 0;
+    translate: var(--transX) 0;
+    transition: translate var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay),
+                  opacity var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay);
+    &.is-show {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  &[data-fade-type="fadein-right"] {
+    --transX: 20%;
+    --delay: 0s;
+    --duration: .6s;
+    opacity: 0;
+    translate: var(--transX) 0;
+    transition: translate var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay),
+                  opacity var(--duration) cubic-bezier(0.78,0.08,0.24,0.94) var(--delay);
+    &.is-show {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  &[data-fade-type="zoom"] {
+    --delay: 0s;
+    --duration: .4s;
+    --scale: .9;
+    scale: var(--scale);
+    opacity: 0;
+    transition: opacity calc(var(--duration) - .2s),
+                scale var(--duration) cubic-bezier(0.34, 1.56, 0.64, 1.26) var(--delay);
+    &.is-show {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+
+  &[data-fade-type="bounce-in"] {
+    --delay: 0s;
+    --duration: .6s;
+    opacity: 0;
+    &.is-show {
+      animation-name: bounce-in;
+      animation-duration: var(--duration);
+      animation-delay: var(--delay);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &[data-fade-type="blur-in"] {
+    --delay: 0s;
+    --duration: .6s;
+    --opacity: .3;
+    --scale: .9;
+    opacity: var(--opacity);
+    scale: var(--scale);
+    filter: blur(10px);
+    &.is-show {
+      animation-name: blur-in;
+      animation-duration: var(--duration);
+      animation-delay: var(--delay);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    opacity: 1;
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    opacity: 1;
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+@keyframes blur-in {
+  from {
+    filter: blur(10px);
+    opacity: 0.3;
+    scale: 0.9;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    scale: 1;
+  }
+}

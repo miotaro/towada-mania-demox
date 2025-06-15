@@ -1,0 +1,85 @@
+@use "../Global/index" as *;
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.recruit-head {
+  &__label {
+    display: inline-block;
+    font-size: rem(15px);
+    color: white;
+    background-color: var(--color-orange);
+    padding: 3px 8px 2px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: rem(22px);
+    font-weight: 700;
+    padding-block: 0 var(--inr-gutter);
+    border-bottom: .9px solid var(--color-dark);
+  }
+
+  &__data {
+
+  }
+
+  &__data-item {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 5px;
+    font-size: rem(15px);
+    :not(:last-child) { margin-bottom: 10px; }
+    ._icon {
+      width: 17px;
+      height: 17px;
+      fill: white;
+      background-color: var(--color-blue);
+      border-radius: 5px;
+      padding: 2px;
+      translate: 0 2px;
+    }
+
+    ._text {
+      flex: 1;
+    }
+  }
+
+  .recruit-dtl-section {
+    border-bottom: .9px solid var(--color-dark);
+  }
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.recruit-detail {
+  .tab-panels {
+    padding-top: 35px;
+  }
+
+  .recruit-head {
+    &__title {
+      padding-bottom: 25px;
+    }
+  }//.recruit-head
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.recruit-dtl-section {
+  padding-block: 20px;
+  &__title {
+    color: var(--color-blue);
+    font-size: rem(16px);
+    font-weight: 700;
+    margin-bottom: 17px;
+  }
+}

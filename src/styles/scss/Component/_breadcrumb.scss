@@ -1,0 +1,53 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.breadcrumb {
+  // margin-bottom: 10px;
+  &__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    overflow: auto;
+    padding: 14px var(--cs-gutter);
+  }
+
+  &__item {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:first-child {
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        ._icon { width: 26px; }
+      }//a
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: "＞";
+        display: block;
+        color: var(--color-dark-a60);
+        margin-inline: 10px;
+      }
+    }
+
+    a,span {
+      font-size: rem(13px);
+      color: var(--color-dark-a60);
+      fill: var(--color-dark-a60);
+    }
+
+    a {
+      &:hover { text-decoration: underline; }
+    }
+  }//&__item
+}

@@ -1,0 +1,113 @@
+@use "../Global/index" as *;
+
+html {
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  //font-size: 62.5%;//1remを10pxにする
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--window-sp-block) + 40px);
+}
+
+* {
+  zoom: 1;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0);
+  -webkit-touch-callout: none;
+  // -webkit-user-select: none;
+  &:focus,&:active {
+    outline: none !important;
+  }
+  &:before,&:after {
+    zoom: 1;
+  }
+}
+
+::selection {
+	background: rgb(0 0 0 / .4);
+}
+
+body {
+  font-family: 'Roboto', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'メイリオ', meiryo, sans-serif;
+  word-break: normal;
+  vertical-align: baseline;
+  color: var(--color-dark);
+  font-size: rem(15px);
+  font-weight: 400;
+  font-style: normal;
+  // letter-spacing: .05em;
+  line-height: 1.4;
+  width: 100%;
+  margin: 0;
+  // background-color: #1E2864;
+  // background-image: url(../../../../public/img/pc_body_bg.webp);
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  // background-size: cover;
+  background-color: var(--color-navy);
+  position: relative;
+  @include mq(sm) {
+    font-size: rem(14px);
+  }
+}
+
+// ::-webkit-scrollbar { display: none; }
+
+main {
+
+}
+
+h1,h2,h3,h4,h5 {
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+ul:not([class]) {
+  @extend %li-style-desc;
+}
+
+ol:not([class]) {
+  @extend %li-style-decimal;
+}
+
+.is-no-scroll {
+  overflow: hidden!important;
+}
+
+svg {
+  display: block;
+  // display: inline-block;
+  // width: 100%;
+  // vertical-align: middle;
+}
+
+.svg-defs {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.svg-cp {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;left: 0;
+  z-index: -1;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+a[href*="tel:"] {
+  @media (min-width: 751px) {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

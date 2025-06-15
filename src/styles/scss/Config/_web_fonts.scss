@@ -1,0 +1,36 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+@font-face {
+  font-family: 'YakuHanJP';
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-Light.eot') format('embedded-opentype');
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff'),
+        url('../../../../public/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YakuHanJP';
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-DemiLight.eot') format('embedded-opentype');
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-DemiLight.woff') format('woff'),
+        url('../../../../public/fonts/YakuHanJP/YakuHanJP-DemiLight.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YakuHanJP';
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-Medium.eot') format('embedded-opentype');
+  src: url('../../../../public/fonts/YakuHanJP/YakuHanJP-Medium.woff') format('woff'),
+        url('../../../../public/fonts/YakuHanJP/YakuHanJP-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+

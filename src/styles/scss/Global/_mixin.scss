@@ -1,0 +1,64 @@
+/*=============================================================================================================
+  mixin
+=============================================================================================================*/
+/* position absolute */
+@mixin absolute($top:null, $right:null, $bottom:null, $left:null){
+  position: absolute;
+  @if $top != null{
+    top: $top;
+  }
+  @if $right != null{
+    right: $right;
+  }
+  @if $bottom != null{
+    bottom: $bottom;
+  }
+  @if $left != null{
+    left: $left;
+  }
+}
+/*----------------------------------------------------------------------------------
+●呼び出し
+  p {
+    @include absolute(0,0,0,0);
+  }
+  p.vertical {
+    @include absolute($top:0, $bottom:0);
+  }
+----------------------------------------------------------------------------------*/
+
+/* 透明度の指定 */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $ieopacity: ($opacity * 100);
+  filter: alpha(opacity=$ieopacity);
+}
+
+/* border-radius */
+@mixin radius($size) {
+  border-radius: ($size);
+}
+/*----------------------------------------------------------------------------------
+●呼び出し
+  @include radius(10);
+----------------------------------------------------------------------------------*/
+
+/* opacity */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+
+/* circle*/
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+}
+
+
+@mixin letter-indent($size) {
+  letter-spacing: $size;
+  text-indent: $size;
+}

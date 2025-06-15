@@ -1,0 +1,81 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  @extend %fs-Roboto;
+  color: var(--color-navy);
+  margin-top: 50px;
+  padding-block: 4px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: .1s background-color, .1s translate;
+    &:active {
+      translate: 0 2px;
+    }
+  }
+
+  &__link {
+    &:hover {
+      background-color: var(--color-yellow-a50);
+    }
+    &.is-current {
+      color: white;
+      background-color: var(--color-navy);
+      &:hover { background-color: var(--color-navy); }
+    }
+  }
+
+  &__ellipsis {
+    font-size: rem(10px);
+  }
+
+  &__prev,&__next {
+    border: 1px solid var(--color-navy);
+    &::before {
+      content: "";
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-bottom: 1px solid var(--color-navy);
+      // transition: .2s border-color;
+    }
+    &:hover {
+      background-color: var(--color-pink);
+    }
+  }//&__prev,&__next
+
+  &__prev {
+    &::before {
+      border-left: 1px solid var(--color-navy);
+      rotate: 45deg;
+      translate: 15% 0;
+    }
+  }
+
+  &__next {
+    &::before {
+      border-right: 1px solid var(--color-navy);
+      rotate: -45deg;
+      translate: -15% 0;
+    }
+  }
+}

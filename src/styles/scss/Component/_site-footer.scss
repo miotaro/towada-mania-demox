@@ -1,0 +1,93 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.site-footer {
+  padding-top: 100px;
+  background-color: white;
+  position: relative;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__logo {
+    width: 220px;
+    fill: var(--color-navy);
+  }
+
+  &__sns {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0 45px;
+    margin-block: 60px;
+  }
+
+  &__sns-item {
+    a {
+      display: block;
+      width: 50px;
+    }
+  }
+
+  &__navi {
+    margin-bottom: 70px;
+  }
+
+  &__navi-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    a {
+      font-size: rem(15px);
+      &:hover { text-decoration: underline; }
+    }
+  }//&__navi-item
+
+  &__copyright {
+    font-size: rem(12px);
+  }
+
+  &__img {
+    height: 245px;
+    background: linear-gradient(0deg, rgba(255,245,0,1) 20%, rgba(255,81,206,1) 100%);
+    position: relative;
+
+    &::before,&::after {
+      content: "";
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      height: 40px;
+      top: 0;
+      background-image: url('data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20id%3D%22a%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%2040%22%3E%3Cpath%20d%3D%22M234.7890303%2C0H0v34.6977539c26.4102998-7.7802734%2C39.185862-21.378418%2C83.8318449-21.378418%2C44.309305%2C0%2C57.2266264%2C13.3935547%2C83.2365524%2C21.2011719v.0810547c10.1070425%2C3.0083008%2C22.2063754%2C5.1665039%2C38.8707353%2C5.3774414.3144083.0043945.6388739.0043945.9568741.0073242.5761359.0048828%2C1.1431724.0136719%2C1.7303234.0136719.0459759%2C0%2C.0900362-.0009766.1360121-.0009766s.0900362.0009766.1360121.0009766c.3117743%2C0%2C.6077444-.0068359.9161662-.0083008.666651-.003418%2C1.3330626-.0073242%2C1.9855856-.0170898.7890141-.0107422%2C1.5627028-.0283203%2C2.3313629-.0478516.1053615-.0029297.2112019-.0053711.316324-.0083008%2C7.6839672-.2075195%2C14.381128-.8359375%2C20.3412372-1.7788086v-.0439453c38.0302378-6.0991211%2C46.5798456-24.7763672%2C98.905246-24.7763672%2C62.534452%2C0%2C62.534452%2C26.6806641%2C125.068904%2C26.6806641%2C17.8882296%2C0%2C30.6551714-2.1850586%2C41.2368196-5.3022461V0H234.7890303Z%22%20style%3D%22fill%3A%23fff%3B%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: repeat-x;
+      background-position: top 0 left -1px;
+      background-size: auto 40px;
+    }
+
+    &::after {
+      height: 100%;
+      bottom: 0;
+      background-image: url(../../../../public/img/footer_img.svg);
+      background-repeat: no-repeat;
+      background-position: right 35% top -40%;
+      background-size: 117% auto;
+      mix-blend-mode: overlay;
+      opacity: .5;
+    }
+  }//&__img
+}
+
+
+

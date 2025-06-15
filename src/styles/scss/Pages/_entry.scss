@@ -1,0 +1,98 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.entry {
+
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.entry-header {
+  padding: 30px var(--cs-gutter);
+
+  &__title {
+    font-size: rem(22px);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-size: rem(17px);
+    color: var(--color-dark-a60);
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    time {
+      @extend %fs-Roboto;
+      font-size: rem(13px);
+      color: var(--color-dark-a60);
+    }
+  }
+}//.entry-header
+
+/* ==========================================================================
+
+========================================================================== */
+
+.entry-thumb {
+  margin-bottom: 45px;
+}
+
+
+.bgmc-title {
+  display: grid;
+  place-items: center;
+  height: 75px;
+  text-align: center;
+  background-image: var(--multi-gradient);
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.koremite-section {
+  .bgmc-title {
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      height: 150%;
+      aspect-ratio: 6 / 5;
+      background-image: url(../../../../public/img/character_eye.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: absolute;
+      top: 50%; left: 50%;
+      translate: -50% -50%;
+      opacity: .4;
+    }
+    img {
+      width: 260px;
+      position: relative;
+    }
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.related-section {
+  .bgmc-title {
+    img { width: 145px; }
+  }
+}

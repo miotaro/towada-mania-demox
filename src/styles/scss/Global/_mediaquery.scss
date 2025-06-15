@@ -1,0 +1,164 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+@use "sass:string";
+@use "var" as *;
+
+
+/* breakpoint MAP
+========================================================================== */
+
+$breakpoints: (
+  sm: 460px,
+  md: 850px,
+  lg: 960px,
+  xl: 1200px,
+  0: 0
+) !default;
+
+
+/* Media screen sett15gs
+========================================================================== */
+
+@mixin mq-portrait($width, $type: max) {
+  @if map.has_key($breakpoints, $width) {
+    $width: map.get($breakpoints, $width);
+  }
+  @if $type == min {
+    $type: min;
+  }
+  @media only screen and (orientation: portrait) and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+@mixin mq-landscape($width, $type: max) {
+  @if map.has_key($breakpoints, $width) {
+    $width: map.get($breakpoints, $width);
+  }
+  @if $type == min {
+    $type: min;
+  }
+  @media only screen and (orientation: landscape) and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+
+
+/* Media screen settings
+========================================================================== */
+
+@mixin mq($width, $type: max) {
+  @if map.has_key($breakpoints, $width) {
+    $width: map.get($breakpoints, $width);
+  }
+  @if $type == min {
+    $type: min;
+  }
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+@mixin mq-min-max($min_size,$max_size) {
+  @if map.has_key($breakpoints, $min_size) {
+    $min_size: map.get($breakpoints, $min_size);
+  }
+  @if map.has_key($breakpoints, $max_size) {
+    $max_size: map.get($breakpoints, $max_size);
+  }
+  @media screen and (min-width: $min_size) and (max-width: $max_size) {
+    @content;
+  }
+}
+
+
+
+/* container query
+========================================================================== */
+
+@mixin cq($width, $type: max) {
+  @if map.has_key($breakpoints, $width) {
+    $width: map.get($breakpoints, $width);
+  }
+  @if $type == min {
+    $type: min;
+  }
+  @container (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+
+
+
+/*
+========================================================================== */
+
+@function mapReverse ($map) {
+  $result: null;
+  @if type-of($map) == "map" {
+    $keys: map.keys($map);
+    $map-reversed: ();
+    @for $i from length($keys) through 1 {
+      $map-reversed: map.merge(
+        $map-reversed,
+        (nth($keys, $i): map.get($map, nth($keys, $i)))
+      );
+    }
+    @if type-of($map-reversed) == "map" {
+      $result: $map-reversed;
+    } @else {
+      @warn 'There was an error reversing the order of "#{$map}"';
+    }
+  } @else {
+    @warn '"#{$map}" is not a valid map';
+  }
+  @return $result;
+}
+$breakpoints-re: mapReverse($breakpoints);
+
+
+
+// @mixin mq($width, $type: max) {
+//   @if map.has_key($breakpoints, $width) and $type == max {
+//     $width: map.get($breakpoints, $width);
+//     // @if $type == max {
+//     //   $width: $width - 1px;
+//     // }
+//     @media only screen and (#{$type}-width: $width) {
+//       @content;
+//     }
+//   }
+
+//   @else if map.has_key($breakpoints, $width) and $type == min {
+//     $width: map.get($breakpoints, $width);
+//     @media only screen and (min-width: $width) {
+//       @content;
+//     }
+//   }
+
+//   @else if $width and $type == max {
+//     @media only screen and (#{$type}-width: $width) {
+//       @content;
+//     }
+//   }
+
+//   @else if $width and $type == min {
+//     @media only screen and (min-width: $width) {
+//       @content;
+//     }
+//   }
+// }
+
+
+// @include mq(sm,min) {
+
+// }
+
+// @mixin mq($breakpoint) {
+//   @media (max-width: #{map.get($breakpoints, $breakpoint)}) {
+//     @content;
+//   }
+// }

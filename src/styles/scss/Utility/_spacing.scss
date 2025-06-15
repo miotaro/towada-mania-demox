@@ -1,0 +1,113 @@
+@use "../global/" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+
+/* margin
+========================================================================== */
+
+$sp-sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sp-sizes: map-merge(
+  (
+    0: 0,
+    d5: .5rem,
+    1: 1rem,
+    2: 2rem,
+    3: 3rem,
+    4: 4rem,
+    5: 5rem,
+    6: 6rem,
+    7: 7rem,
+    8: 8rem,
+    9: 9rem,
+    10: 10rem,
+    15: 15rem,
+    auto: auto
+  ),
+  $sp-sizes
+);
+
+
+/* padding
+========================================================================== */
+
+$pd-sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$pd-sizes: map-merge(
+  (
+    0: 0,
+    1: 1rem,
+    2: 2rem,
+    3: 3rem,
+    4: 4rem,
+    5: 5rem,
+    6: 6rem,
+    auto: auto
+  ),
+  $pd-sizes
+);
+
+/* ==========================================================================
+
+========================================================================== */
+
+$mar-direction: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$mar-direction: map-merge(
+  (
+    'mr': 'margin-right',
+    'ml': 'margin-left',
+    'mt': 'margin-top',
+    'mb': 'margin-bottom'
+  ),
+  $mar-direction
+);
+
+
+$par-direction: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$par-direction: map-merge(
+  (
+    'pr': 'padding-right',
+    'pl': 'padding-left',
+    'pt': 'padding-top',
+    'pb': 'padding-bottom'
+  ),
+  $par-direction
+);
+
+/* ==========================================================================
+
+========================================================================== */
+
+@each $breakpoint in map-keys($breakpoints-re) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints-re);
+    @each $size, $length in $sp-sizes {
+      @each $abbre, $property in $mar-direction {
+        .u#{$infix}-#{$abbre}-#{$size} { #{$property}: $length !important }
+      }
+      .u#{$infix}-mx-#{$size} { margin-inline: $length !important; }
+      .u#{$infix}-my-#{$size} { margin-block: $length !important; }
+    }
+  }
+}
+
+
+@each $breakpoint in map-keys($breakpoints-re) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints-re);
+    @each $size, $length in $pd-sizes {
+      @each $abbre, $property in $par-direction {
+        .u#{$infix}-#{$abbre}-#{$size} { #{$property}: $length !important }
+      }
+
+      .u#{$infix}-p-#{$size} { padding: $length !important; }
+      .u#{$infix}-px-#{$size} { padding-inline: $length !important; }
+      .u#{$infix}-py-#{$size} { padding-block: $length !important; }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.page-404 {
+  .page-head__text {
+    font-size: rem(30px);
+  }
+}
+
+
+.error404 {
+  padding-block: 40px;
+  &__img {
+    width: 70%;
+    margin: 0 auto 20px;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: var(--color-navy);
+    font-size: rem(18px);
+    margin-bottom: 20px;
+  }
+
+  .btn-group {
+    margin-top: 40px;
+  }
+}

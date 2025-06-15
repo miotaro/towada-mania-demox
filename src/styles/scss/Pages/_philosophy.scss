@@ -1,0 +1,221 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.phtp-block {
+  &__title {
+    font-size: rem(28px);
+    line-height: 1.2;
+    padding: 4px 2px;
+    border-bottom: .9px solid var(--color-dark);
+    margin-bottom: 20px;
+  }
+  p:not(:last-child) {
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+  &__img {
+    margin-inline: auto;
+    margin-block: 60px 140px;
+    &.--type01,&.--type02 {
+      svg { fill: var(--color-dark) }
+    }
+    &.--type01 { width: 165px; }
+    &.--type02 { width: 220px; }
+    &.--chara { width: 250px; }
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.page-philosophy {
+  .page-head {
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      &::before,&::after {
+        content: "";
+        display: block;
+        width: 125px;
+        aspect-ratio: 65 / 23;
+        background-image: url(../../../../public/img/character06.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        bottom: 0;
+        translate: 0 30%;
+        opacity: .5;
+        z-index: 4;
+      }
+      &::before {
+        left: 5px;
+      }
+      &::after {
+        right: 5px;
+      }
+    }//&__inner
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 5px;
+      ._en {
+        @extend %fs-Roboto;
+        font-weight: 900;
+      }
+      ._ja {
+        font-size: rem(20px);
+      }
+    }//&__text
+  }//.page-head
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.philos-intro {
+  line-height: 1.7;
+  &__title {
+    font-size: rem(43px);
+    line-height: 1.4;
+    font-weight: 900;
+    margin-bottom: 1em;
+  }
+
+  ._sub {
+    font-size: rem(25px);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  ._emph {
+    font-size: rem(20px);
+    font-weight: 700;
+    line-height: 2;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.ph-separator-img {
+  padding-bottom: 16%;
+  border: none;
+  background-image: url(../../../../public/img/gradi-wave.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-block: 40px;
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.philos-story {
+  margin-bottom: 140px;
+  &__head {
+    display: grid;
+    grid-template-columns: 67px auto 67px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 23px;
+    margin-bottom: 30px;
+
+    ._kotosuki {
+
+    }
+
+    ._be-cause {
+
+    }
+
+    ._cross {
+      width: 30px;
+      display: grid;
+      aspect-ratio: 1 / 1;
+      rotate: 45deg;
+      &::before,&::after {
+        content: "";
+        display: block;
+        width: 100%;
+        grid-area: 1/1;
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        border-top: .9px solid var(--color-dark);
+      }
+      &::before { rotate: 90deg; }
+    }//._cross
+  }//&__head
+
+  &__title {
+    font-size: rem(35px);
+    font-weight: 900;
+    margin-block: 60px 40px;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.philos-thought {
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(29px);
+    font-weight: 900;
+    @include letter-indent(.05em);
+    &::after {
+      content: "";
+      display: block;
+      width: 9em;
+      aspect-ratio: 128 / 33;
+      background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20276.077%2066.072%22%3E%3Cpath%20d%3D%22M.006.676C.66%205.266%204.121%208.637%207.88%2011.013c4.591%202.902%209.885%204.847%2015.06%206.413%2011.644%203.523%2023.9%205.15%2035.987%206.216%2012.559%201.107%2025.177%201.465%2037.777%201.75a1287%201287%200%200%200%2081.726-.75l-.143-1.057c-3.366.733-4.494%204.778-3.556%207.75%201.283%204.067%205.875%205.847%209.5%207.203l-.128-.983c-2.842%201.524-6.067%203.28-7.424%206.387-1.072%202.453-.9%205.586%201.267%207.385.53.44%201.295-.318.761-.761-2.07-1.72-1.96-4.809-.64-6.966%201.48-2.42%204.159-3.818%206.579-5.116.44-.236.278-.832-.129-.984-3.089-1.155-6.951-2.572-8.481-5.77-1.185-2.478-.512-6.443%202.537-7.107.59-.129.463-1.082-.143-1.057a1292%201292%200%200%201-74.75.888c-24.492-.42-49.537-.655-73.513-6.226-6.407-1.488-12.743-3.463-18.64-6.41C6.84%209.474%201.84%205.964%201.044.39.947-.293-.09-.003.006.676M198.297%2023.557a109.7%20109.7%200%200%200%2041.78-2.7%20107%20107%200%200%200%206.928-2.074c1.258-.424%202.948-.98%203.41-2.39.561-1.715-1.326-3.003-2.55-3.804-1.878-1.229-4.028-1.892-6.257-2.058v1.077a85%2085%200%200%200%2034.189-7.543c.63-.285.084-1.213-.543-.93a83.7%2083.7%200%200%201-33.646%207.396c-.7.007-.685%201.026%200%201.077%201.97.146%203.865.74%205.541%201.798.687.433%201.715%201.038%202.11%201.785.63%201.197-.83%201.923-1.724%202.272-3.715%201.45-7.713%202.423-11.597%203.294a108.5%20108.5%200%200%201-23.92%202.623%20110%20110%200%200%201-13.721-.9c-.685-.087-.679.99%200%201.077M173.762%2063.9c-.005%200-.183-.021-.08-.002a1%201%200%200%201-.155-.042c.089.031-.197-.125-.127-.07-.175-.138-.237-.23-.334-.456-.047-.11-.1-.358-.105-.513a1.2%201.2%200%200%201%20.098-.6c.05-.126.168-.284.325-.428.202-.187.455-.319.716-.402.515-.165%201.075-.182%201.608-.102.591.09%201.227.274%201.703.651.214.17.34.32.457.56.066.134.131.42.139.57.04.823-.437%201.726-1.263%201.903-1.03.22-2.214-.893-2.035-1.946.049-.286-.076-.58-.376-.662-.258-.07-.613.088-.662.376-.274%201.613.978%203.154%202.59%203.322%201.477.154%202.616-1.12%202.795-2.494.086-.653-.038-1.357-.432-1.897-.52-.714-1.335-1.116-2.175-1.327-1.444-.363-3.437-.22-4.264%201.226-.732%201.281-.07%203.37%201.577%203.41.693.015.693-1.061%200-1.077%22%20style%3D%22fill%3A%23231815%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }//&__title
+
+
+  &__designer {
+    display: grid;
+    grid-template-columns: 70px auto;
+    justify-content: center;
+    column-gap: 23px;
+    margin-block: 10px 100px;
+
+    ._title {
+      line-height: 1.3;
+    }
+    ._name {
+      font-size: 145%;
+      font-weight: 700;
+      margin-top: 3px;
+      span { font-size: 80%; }
+    }
+  }//&__designer
+}

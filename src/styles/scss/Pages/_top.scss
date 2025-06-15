@@ -1,0 +1,185 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.home-main {
+  height: var(--phone-h);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 50px 10% 30px;
+  overflow: hidden;
+  position: relative;
+  @include mq(sm) {
+    height: auto;
+    min-height: 100dvh;
+  }
+}
+
+.home-bg {
+  position: absolute;
+  top: 0;left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+
+.app-list {
+  $this: &;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  justify-content: space-between;
+  // padding-inline: 20px;
+  // padding-inline: 10%;
+  gap: 15px 0;
+  position: relative;
+
+  &__item {
+    .icon-group {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 8px 0;
+      ._icon {
+          display: grid;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        &.--app-icon {
+          mask-image: url(../../../../public/img/app_icon_bg.svg);
+          mask-repeat: no-repeat;
+          mask-size: cover;
+          &::before {
+            content: "";
+            grid-area: 1/1;
+            width: 100%;
+            height: 100%;
+            mask-image: url(../../../../public/img/app_icon_frame.svg);
+            mask-repeat: no-repeat;
+            mask-size: cover;
+          }
+          img {
+            width: 86%;
+            grid-area: 1/1;
+            align-self: center;
+            justify-self: center;
+          }
+        }//&.--app-icon
+        &.--floder {
+          background-color: rgb(var(--color-navy-rgb) / .6);
+          mask-image: url(../../../../public/img/app_icon_bg.svg);
+          mask-repeat: no-repeat;
+          mask-size: cover;
+          img {
+            width: 86%;
+            align-self: center;
+            justify-self: center;
+          }
+        }//&.--floder
+      }//._icon
+
+      ._text {
+        @extend %fs-Dela-Gothic;
+        font-size: rem(14px);
+        color: white;
+        line-height: 1;
+        white-space: nowrap;
+      }
+    }//.icon-group
+
+    &:nth-child(odd) {
+      .icon-group {
+        ._icon.--app-icon {
+          background-color: var(--color-pink);
+          &::before { background-color: var(--color-navy); }
+        }
+      }
+    }//&:nth-child(odd)
+
+    &:nth-child(even) {
+      .icon-group {
+        ._icon.--app-icon {
+          background-color: var(--color-orange);
+          &::before { background-color: var(--color-yellow); }
+        }
+      }
+    }//&:nth-child(even)
+  }//&__item
+}
+
+.home-bottom {
+  // width: 78.67%;
+  width: 100%;
+  margin: auto auto 0;
+  position: relative;
+  transform: translate(0, 20rem) scale(3, 6);
+  transition: transform .5s var(--al-cb) .2s;
+  &__btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.home-main {
+  & > .app-list {
+    .app-list__item {
+      --al-cb: cubic-bezier(.24,1.26,.64,1);
+      will-change: transform, opacity;
+      opacity: 0;
+
+      &:first-child {
+        transform: translate(-20rem, -20rem) scale(5, 6);
+        transition: transform .5s var(--al-cb) .2s;
+      }
+
+      &:nth-child(2) {
+        transform: translateY(-40rem) scale(3, 6);
+        transition: transform .5s var(--al-cb);
+      }
+
+      &:nth-child(3) {
+        transform: translate(20rem, -20rem) scale(4, 6);
+        transition: transform .5s var(--al-cb) .2s;
+      }
+
+      &:nth-child(4) {
+        transform: translate(-20rem, 30rem) scale(3, 6);
+        transition: transform .5s var(--al-cb) .2s;
+      }
+
+      &:nth-child(5) {
+        transform: translateY(110rem) scale(3, 6);
+        transition: transform .5s var(--al-cb) .1s;
+      }
+
+      &:nth-child(6) {
+        transform: translate(20rem, 30rem) scale(3, 6);
+        transition: transform .5s var(--al-cb) .18s;
+      }
+    }//&__item
+  }
+}
+
+
+
+.home-main.is-active {
+  & > .app-list {
+    .app-list__item {
+      transform: translate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  .home-bottom {
+    transform: translate(0) scale(1);
+  }
+}

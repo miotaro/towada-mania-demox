@@ -1,0 +1,227 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+/* Placeholder
+========================================================================== */
+
+$placeholder-txt-color: #D2D2D2;
+
+::-webkit-input-placeholder { /* Chrome */
+  color: $placeholder-txt-color;
+  font-weight: 400;
+  //iphone safari のずれ修正
+  // padding-top: 0.1em;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $placeholder-txt-color;
+  font-weight: 400;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $placeholder-txt-color;
+  font-weight: 400;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: $placeholder-txt-color;
+  font-weight: 400;
+  opacity: 1;
+}
+
+
+
+/* castum select box
+========================================================================== */
+
+
+$arrow-clr: F6B453;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2211%22%20height%3D%229%22%20viewBox%3D%220%200%2011%209%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5.5%209L0.73686%200.750001L10.2631%200.75L5.5%209Z%22%20fill%3D%22%23#{$arrow-clr}%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right .6em top 50%;
+  background-size: 9px 9px;
+  padding-right: 2em;
+  color: $placeholder-txt-color;
+  background-color: white;
+  &::-ms-expand {
+    display: none;
+  }
+
+  &.is-selected {
+    color: #333;
+  }
+}//select
+
+
+
+/* castum radio
+========================================================================== */
+
+$radio-size: 20px !default;
+$checkbox-size: 20px !default;
+$dot-size: 10px !default;
+$border-size: 1px !default;
+$border-color: #918C8A !default;
+$box-bg-color: white !default;
+$main-color: #F5B94B !default;
+$disabled-color: lighten($border-color, 14%) !default;$disabled-color: color.adjust($border-color, $lightness: 14%) !default;
+$disabled-checked-color: lighten($main-color, 30%) !default;
+$marker-color: #F5B94B;
+
+
+.label-radio input,
+.label-checkbox input {
+  position: absolute;
+  display: none !important;
+}
+.label-radio input[disabled],
+.label-checkbox input[disabled] {
+  cursor: not-allowed;
+}
+
+.label-radio span,
+.label-checkbox span {
+  position: relative;
+  display: inline-block;
+  padding-left: $radio-size + 8px;
+  cursor: pointer;
+  vertical-align: middle;
+
+  &:hover {
+    &:before {
+      animation-duration: 0.4s;
+      animation-fill-mode: both;
+      animation-name: hover-color;
+    }
+  }
+  &:before {
+    position: absolute;
+    top: .67em; left: 0;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    content: '';
+    border: $border-size solid $border-color;
+    background-color: $box-bg-color;
+    transition: .2s all;
+  }
+  &:after {
+    position: absolute;
+    display: none;
+    content: '';
+  }
+}
+
+.label-radio input[disabled] + span,
+.label-checkbox input[disabled] + span {
+  cursor: not-allowed;
+  color: $disabled-color;
+  &:hover,&:before,&:after {
+    cursor: not-allowed;
+  }
+  &:hover {
+    &:before {
+      border: 1px solid $disabled-color;
+      animation-name: none;
+    }
+  }
+  &:before {
+    border-color: $disabled-color;
+  }
+}
+
+.label-radio input:checked + span,
+.label-checkbox input:checked + span {
+  &:before {
+    animation-name: none;
+  }
+  &:after {
+    display: block;
+  }
+}
+
+
+
+/* radio
+========================================================================== */
+
+.label-radio {
+  display: inline-block;
+}
+
+.label-radio span {
+  &:before {
+    border-radius: 50%;
+  }
+  &:after {
+    top: .9em; left: 5px;
+    transform: translateY(-50%);
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    background: $marker-color;
+  }
+}
+
+.label-radio input:checked + span {
+  &:before {
+    // border: $border-size solid #fff;
+  }
+}
+.label-radio:checked[disabled] span {
+  &:before {
+    border: $border-size solid $disabled-checked-color;
+  }
+  &:after {
+    background: $disabled-checked-color;
+  }
+}
+
+
+/* checkbox
+========================================================================== */
+
+$check-mark-clr: "FFFFFF";
+.label-checkbox span {
+  &:before {
+    border-radius: 4px;
+  }
+  &:after {
+    top: .67em; left: 0;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    background-image: url('data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20id%3D%22a%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2014%2011%22%3E%3Cpath%20d%3D%22M6.1337472%2C11c-.125033%2C0-.2458196-.0489248-.3364096-.1372744L.1467893%2C5.3480007C.0547839%2C5.2582261.0019398%2C5.1352017.0000525%2C5.0064772c-.0018873-.1291994.0471823-.2536488.1363568-.3462734l1.4305663-1.4848433c.0948364-.0983246.220813-.1477243.3467897-.1477243.1212584%2C0%2C.2425169.0455998.3364096.1372744l3.7113571%2C3.6228085L11.5889609.1700492c.0835126-.0978496.2019401-.1586493.329804-.1686242.0122674-.00095.0250066-.001425.037274-.001425.1146529%2C0%2C.2264749.0413248.3142339.1168495l1.5607894%2C1.3451939c.0971955.0840746.1575888.2032991.167497.3320235s-.0316121.2560238-.1146529.3538734l-7.3830812%2C8.6820105c-.0868154.1021245-.2113766.1633993-.3444305.1695742-.0075492.000475-.0150983.000475-.0226475.000475Z%22%20style%3D%22fill%3A%23#{$check-mark-clr}%3B%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 76%;
+  }
+}
+
+.label-checkbox input:checked + span {
+  &:before {
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+  }
+}
+
+
+
+
+// <label class="label-checkbox">
+//   <input type="checkbox">
+//   <span>ラベル</span>
+// </label>
+
+// <label class="label-radio">
+//   <input type="radio">
+//   <span>ラベル</span>
+// </label>

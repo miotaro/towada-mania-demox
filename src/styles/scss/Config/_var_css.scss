@@ -1,0 +1,117 @@
+@use "../Global/index" as *;
+
+:root {
+  --color-navy: #1E2864;
+  --color-navy-rgb: 30 40 100;
+  --color-navy-a60: #787EA2;
+  --color-navy-a50: #8E93B1;
+  --color-navy-a30: #BBBED0;
+  --color-navy-a10: #E8E9EF;
+  --color-navy-d07: #161d49;;
+
+  --color-blue: #0049B9;
+  --color-blue-rgb: 0 73 185;
+  --color-blue-a80: #336DC7;
+  --color-blue-a50: #80A4DC;
+  --color-blue-a20: #CCDBF1;
+  --color-blue-a05: #F2F6FB;
+
+  --color-pink: #FF51CE;
+  --color-pink-rgb: 255 81 206;
+  --color-pink-a80: #FF74D8;
+  --color-pink-a50: #FFA8E6;
+  --color-pink-a05: #FFF6FD;
+
+  --color-orange: #FF9333;
+  --color-orange-rgb: 255 147 51;
+  --color-orange-a50: #FFC999;
+
+  --color-yellow: #FFF500;
+  --color-yellow-rgb: 255 245 0;
+  --color-yellow-a50: #FFFA80;
+  --color-yellow-a10: #FFFEE5;
+  --color-yellow-a05: #FFFEF2;
+
+  --color-dark: #231815;
+  --color-dark-rgb: 35 24 21;
+  --color-dark-a70: #655D5B;
+  --color-dark-a60: #7B7473;
+  --color-dark-a30: #BDBAB9;
+  --color-dark-a05: #F4F4F7;
+
+  --color-red: #F04047;
+
+  --multi-gradient: linear-gradient(0deg, var(--color-yellow) 0%, var(--color-orange) 23%, var(--color-pink) 50%, rgba(144,79,201,1) 80%, var(--color-blue) 100%);
+
+  --multi-gradient-tb: linear-gradient(180deg, var(--color-yellow) 0%, var(--color-orange) 23%, var(--color-pink)
+  50%, rgba(144,79,201,1) 80%, var(--color-blue) 100%);
+
+  --multi-gradient-tr: linear-gradient(90deg, var(--color-yellow) 0%, var(--color-orange) 23%, var(--color-pink) 50%, rgba(144,79,201,1) 80%, var(--color-blue) 100%);
+
+  --multi-gradient-tl: linear-gradient(-90deg, var(--color-yellow) 0%, var(--color-orange) 23%, var(--color-pink) 50%, rgba(144,79,201,1) 80%, var(--color-blue) 100%);
+
+  --multi-gradient-02: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 15%, var(--color-orange) 35%, var(--color-yellow) 50%, var(--color-orange) 65%, var(--color-pink) 85%, var(--color-blue) 100%);
+
+
+  // --phone-w: 400px;
+  // --phone-h: 730px;
+
+  --phone-w: #{$mp-w};
+  --phone-h: #{$mp-h};
+  --window-sp-block: calc((100vh - var(--phone-h)) / 2);
+  --window-sp-inline: calc((100vw - var(--phone-w)) / 2);
+  --phone-frame-w: #{$pf-w};
+  --cs-gutter: 25px;
+  --cs-gutter-neg: -25px;
+  --page-header-h: 110px;
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+@media screen and (max-height: calc( $mp-h + $pf-w )) {
+  :root {
+    --phone-h: 85dvh;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+@include mq(sm) {
+  :root {
+    --phone-w: 100%;
+    --phone-h: auto;
+    --window-sp-block: 0;
+    --window-sp-inline: 0;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+// @media screen and (max-width: 460px) and (max-height: calc( $mp-h + $pf-w )) {
+//   :root {
+//     --phone-h: auto;
+//     --phone-w: 100%;
+//     --window-sp-block: 0;
+//     --window-sp-inline: 0;
+//   }
+// }
+
+
+/* ==========================================================================
+  dark mode
+========================================================================== */
+
+@mixin dark-mode() {
+  html[data-theme = dark-mode] & {
+    @content;
+  }
+}

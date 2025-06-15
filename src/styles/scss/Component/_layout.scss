@@ -1,0 +1,147 @@
+@use "../Global/index" as *;
+
+/* ==========================================================================
+
+========================================================================== */
+
+.mobile-window {
+  padding: var(--window-sp-block) var(--window-sp-inline);
+  @include mq(sm) {
+    display: block;
+    margin: 0;
+  }
+}
+
+.content-body {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: white;
+  position: relative;
+  @include mq(sm) {
+    aspect-ratio: inherit;
+  }
+}
+
+
+/* ==========================================================================
+
+========================================================================== */
+
+.gutter-container {
+  padding-inline: var(--cs-gutter);
+}
+
+.--gc-fulled {
+  margin-inline: var(--cs-gutter-neg);
+}
+
+.--gc-pdg-fulled {
+  margin-inline: var(--cs-gutter-neg);
+  padding-inline: var(--cs-gutter);
+}
+
+/* ==========================================================================
+
+========================================================================== */
+
+.text-box-center {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+
+.dpc-mask {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 20;
+  background-color: #333;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+
+  background-image: url(../../../../public/img/pc_body_bg.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  mask-repeat: no-repeat;
+  mask-position: 0 0, center center;
+  mask-size: 100% 100%, var(--phone-w) var(--phone-h);
+  mask-composite: exclude;
+
+  pointer-events: none;
+  @include mq(sm) { display: none; }
+}
+
+.phone-frame {
+  display: grid;
+  width: calc(var(--phone-w) + var(--phone-frame-w) * 2);
+  height: calc(var(--phone-h) + var(--phone-frame-w) * 2);
+  border: var(--phone-frame-w) solid var(--color-navy);
+  position: fixed;
+  top: 50%; left: 50%;
+  translate: -50% -50%;
+  border-radius: 40px;
+  z-index: 102;
+  pointer-events: none;
+  @include mq(sm) { display: none; }
+  &::before {
+    content: "";
+    grid-area: 1/1;
+    align-self: center;
+    justify-self: center;
+    width: calc(100% + var(--phone-frame-w));
+    height: calc(100% + var(--phone-frame-w));
+    border: 2px solid white;
+    position: absolute;
+    top: calc((var(--phone-frame-w) / 2) * -1); left: calc((var(--phone-frame-w) / 2) * -1);
+    border-radius: 30px;
+    filter: blur(3px);
+    pointer-events: none;
+  }
+}
+
+
+.phone-btns {
+  &.btns-left,&.btns-right {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    @include mq(sm) { display: none; }
+  }
+
+  &.btns-left {
+    top: var(--window-sp-block); left: calc(var(--window-sp-inline) - var(--phone-frame-w));
+    translate: -50% 125px;
+    row-gap: 8px;
+    ._btn { height: 75px; }
+  }
+
+  &.btns-right {
+    top: var(--window-sp-block); right: calc(var(--window-sp-inline) - var(--phone-frame-w));
+    translate: 50% 125px;
+    ._btn { height: 85px; }
+  }
+  ._btn {
+    width: 20px;
+    background-color: var(--color-navy);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 60%;
+      background-color: #fff;
+      position: absolute;
+      top: 50%; left: 0;
+      translate: 0 -50%;
+      filter: blur(10px);
+      opacity: .5;
+    }
+  }//._btn
+}//&-btns
