@@ -3,7 +3,7 @@ import SlidePanel from "@/component/SlidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/Footer";
 import MobileWindow from "@/component/MobileWindow";
-import TabPanel from "@/component/temp__TabPanel";
+import TabPanel from "@/component/TabPanels";
 import Breadcrumb from "@/component/Breadcrumb";
 
 export default function RecruitDetail() {
