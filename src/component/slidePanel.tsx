@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import PulldownBox from './pulldownBox';
+import PulldownBox from './PulldownBox';
 
 export default function SlidePanel() {
   const currentYear = new Date().getFullYear();
