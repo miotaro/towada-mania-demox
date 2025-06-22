@@ -1,18 +1,16 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Shop() {
   return (
     <>
-      <Head />
-
       <div className="page-flyer">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -20,12 +18,12 @@ export default function Shop() {
           <BtmfixMenu current="null"/>
           
           <div className="content-body">
-            <main className="">
+            <main>
               <div className="page-head phdc-bg --orange">
                 <div className="page-head__inner">
                   <h1 className="page-head__text">チラシ</h1>
                   <div className="page-head__icon">
-                    <img src="../img/ph-icon_flyer.svg" width="100%" height="auto" alt="" />
+                    <img src="/img/ph-icon_flyer.svg" width="100%" height="auto" alt="" />
                   </div>
                 </div>
               </div>
@@ -33,9 +31,9 @@ export default function Shop() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -56,7 +54,7 @@ export default function Shop() {
 
                 <div className="flyer-list">
                   <article className="flyer-list__card card-lg">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <p className="_label"><span>NEW</span></p>
                       <figure className="_thumb">
                         <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
@@ -68,7 +66,7 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <p className="_label"><span>NEW</span></p>
                       <figure className="_thumb">
                         <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
@@ -80,9 +78,9 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <figure className="_thumb">
-                        <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                       </figure>
                       <div className="flyer-info">
                         <p className="flyer-info__date"><time dateTime="">2025年0月0日〜0日</time>まで</p>
@@ -91,10 +89,10 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <p className="_label"><span>NEW</span></p>
                       <figure className="_thumb">
-                        <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                       </figure>
                       <div className="flyer-info">
                         <p className="flyer-info__date"><time dateTime="">2025年0月0日〜0日</time>まで</p>
@@ -103,7 +101,7 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <figure className="_thumb">
                         <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
                       </figure>
@@ -114,10 +112,10 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <p className="_label"><span>NEW</span></p>
                       <figure className="_thumb">
-                        <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                       </figure>
                       <div className="flyer-info">
                         <p className="flyer-info__date"><time dateTime="">2025年0月0日〜0日</time>まで</p>
@@ -126,9 +124,9 @@ export default function Shop() {
                     </a>
                   </article>
                   <article className="flyer-list__card card-sm">
-                    <a href="../flyer/detail.html">
+                    <a href="/flyer/detail">
                       <figure className="_thumb">
-                        <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                       </figure>
                       <div className="flyer-info">
                         <p className="flyer-info__date"><time dateTime="">2025年0月0日〜0日</time>まで</p>
@@ -139,7 +137,7 @@ export default function Shop() {
                 </div>
 
                 <div className="flyer-btn-group">
-                  <a className="btn btn-md btn-secondary" href="../flyer/">チラシ一覧に戻る<span className="btn-arrow"></span></a>
+                  <a className="btn btn-md btn-secondary" href="/flyer">チラシ一覧に戻る<span className="btn-arrow"></span></a>
                 </div>
               </div>
             </main>
@@ -148,14 +146,7 @@ export default function Shop() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
+        </MobileWindow>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">

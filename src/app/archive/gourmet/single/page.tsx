@@ -1,74 +1,42 @@
-import Head from "@/head";
+'use client'
 import SlidePanel from "@/component/slidePanel";
 import PageLoader from "@/component/pageLoader";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
+import PageHeadNav from "@/component/PageHeadNav";
+import EntryImageSlide from "@/component/entryImageSlide";
+import PulldownBox from "@/component/pulldownBox";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Single() {
+  useScrollFadeIn();
+
   return (
     <>
-      <Head />
-
       <div className="page-entry">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
 
-          <BtmfixMenu current="null"/>
+          <BtmfixMenu current="null" />
 
           <div className="content-body">
             <div className="banner">
               <img src="https://placehold.jp/ebebeb/bdbdbd/640x200.png?text=banner" width="100%" height="auto" alt="バナー" />
             </div>
-            <main className="">
-              <div className="page-head phdc-bg --pink">
-                <div className="page-head__inner">
-                  <h1 className="page-head__text">グルメ</h1>
-                  <div className="page-head__icon">
-                    <img src="../../img/ph-icon_news.svg" width="100%" height="auto" alt="" />
-                  </div>
-                </div>
-                <nav className="page-head-navi splide" data-start="1">
-                  <div className="splide__track">
-                    <ul className="page-head-navi__list splide__list">
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 8 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">記事</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide is-current" style={{ "--z-index": 7 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">グルメ</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 6 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">イベント</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 5 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">温泉</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 4 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">町の人</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 3 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">お店</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 2 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">商品</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 1 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">メニュー</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
+            <main>
+              <PageHeadNav current="グルメ" />
 
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -93,7 +61,7 @@ export default function Single() {
                   <p className="entry-header__subtitle">湖上カフェで、二人だけのロマンチックなひとときを</p>
                   <div className="entry-header__info">
                     <div className="post-contributor">
-                      <div className="_icon"><img className="u-cover-img" src="../../img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
+                      <div className="_icon"><img className="u-cover-img" src="/img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
                       <p className="_name">towadamania</p>
                     </div>
                     <time dateTime="2025-04-30">2025.04.30</time>
@@ -101,7 +69,7 @@ export default function Single() {
                 </header>
 
                 <figure className="entry-thumb">
-                  <img src="../../img/single_sample_01.webp" width="100%" height="auto" alt="" />
+                  <img src="/img/single_sample_01.webp" width="100%" height="auto" alt="" />
                 </figure>
 
                 <div className="entry-body gutter-container">
@@ -112,7 +80,7 @@ export default function Single() {
                       <h2 className="bubchar-hdg__title --type-01">
                         <span className="_text">内容をサクッと<br /><span>ご紹介 !</span></span>
                       </h2>
-                      <span className="bubchar-hdg__chara"><img src="../../img/character01.png" width="100%" height="auto" alt="" /></span>
+                      <span className="bubchar-hdg__chara"><img src="/img/character01.png" width="100%" height="auto" alt="" /></span>
                     </div>
                     {/* <!-- /.bubchar-hdg --> */}
 
@@ -187,43 +155,44 @@ export default function Single() {
 
 
                   <div className="more-scroll js-scroll-fadein" data-fade-type="blur-in">
-                    <img src="../../img/more_scroll.webp" width="100%" height="auto" alt="もーっと詳しく知りたい" />
+                    <img src="/img/more_scroll.webp" width="100%" height="auto" alt="もーっと詳しく知りたい" />
                   </div>
 
+                  <PulldownBox
+                    pulldownName="singleMenu"
+                    className="index-box"
+                    trigger={
+                      <p className="index-box__head">
+                        <span className="_icon">
+                          <svg viewBox="0 0 6 10"><use href="#arrow-right"></use></svg>
+                        </span>
+                        目次
+                      </p>
+                    }
+                  >
+                    <ol className="index-box__list">
+                      <li className="index-box__list-item">
+                        <a href="#ipl-01">店内はまるで秘密基地</a>
+                        <ol className="lower-list">
 
-                  <div className="index-box js-pulldown">
-                    <p className="index-box__head js-pulldown__btn">
-                      <span className="_icon"><svg viewBox="0 0 6 10"><use href="#arrow-right"></use></svg></span>目次
-                    </p>
-                    <div className="js-pulldown__box">
-                      <div className="js-pulldown__box__inner">
-                        <ol className="index-box__list">
-                          <li className="index-box__list-item">
-                            <a href="#ipl-01">店内はまるで秘密基地</a>
-                            <ol className="lower-list">
+                          <li className="lower-list__item"><a href="#ipl-02">秘密のヒミツをこっそり教えちゃう</a></li>
 
-                              <li className="lower-list__item"><a href="#ipl-02">秘密のヒミツをこっそり教えちゃう</a></li>
+                          <li className="lower-list__item"><a href="#ipl-03">秘密のヒミツをこっそり教えちゃう</a></li>
 
-                              <li className="lower-list__item"><a href="#ipl-03">秘密のヒミツをこっそり教えちゃう</a></li>
-
-                            </ol>
-                          </li>
-                          <li className="index-box__list-item">
-                            <a href="#ipl-04">店内はまるで秘密基地</a>
-                            <ol className="lower-list">
-
-                              <li className="lower-list__item"><a href="#ipl-05">秘密のヒミツをこっそり教えちゃう</a></li>
-
-                              <li className="lower-list__item"><a href="#ipl-06">秘密のヒミツをこっそり教えちゃう</a></li>
-
-                            </ol>
-                          </li>
                         </ol>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- /.index-box --> */}
+                      </li>
+                      <li className="index-box__list-item">
+                        <a href="#ipl-04">店内はまるで秘密基地</a>
+                        <ol className="lower-list">
 
+                          <li className="lower-list__item"><a href="#ipl-05">秘密のヒミツをこっそり教えちゃう</a></li>
+
+                          <li className="lower-list__item"><a href="#ipl-06">秘密のヒミツをこっそり教えちゃう</a></li>
+
+                        </ol>
+                      </li>
+                    </ol>
+                  </PulldownBox>
 
                   <div className="grip-board character-grip">
                     <div className="_character">
@@ -260,10 +229,10 @@ export default function Single() {
 
                   <div className="grip-image character-grip" id="ipl-02">
                     <div className="_character">
-                      <span><img src="../../img/character03.png" width="100%" height="auto" alt="" /></span>
+                      <span><img src="/img/character03.png" width="100%" height="auto" alt="" /></span>
                     </div>
                     <figure className="grip-image__img _hand-grip">
-                      <img src="../../img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
+                      <img src="/img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
                       <figcaption className="grip-image__caption text-box-center">キャプション</figcaption>
                     </figure>
                   </div>
@@ -285,39 +254,7 @@ export default function Single() {
 
                   </ul>
 
-
-                  <div className="entry-img-slide splide" aria-label="" id="ipl-04">
-                    <div className="splide__track">
-                      <div className="splide__list">
-                        <div className="splide__slide">
-                          <figure className="eis-img">
-                            <img src="../../img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
-                          </figure>
-                          <p className="eis-caption text-box-center">キャプション</p>
-                        </div>
-                        <div className="splide__slide">
-                          <figure className="eis-img">
-                            <img src="../../img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
-                          </figure>
-                          <p className="eis-caption text-box-center">キャプション</p>
-                        </div>
-                        <div className="splide__slide">
-                          <figure className="eis-img">
-                            <img src="../../img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
-                          </figure>
-                          <p className="eis-caption text-box-center">キャプション</p>
-                        </div>
-                        <div className="splide__slide">
-                          <figure className="eis-img">
-                            <img src="../../img/koremite_modal_sample01.jpg" width="100%" height="auto" alt="" />
-                          </figure>
-                          <p className="eis-caption text-box-center">キャプション</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- /.entry-img-slide --> */}
-
+                  <EntryImageSlide />
 
                   <h3>フード</h3>
                   <p>
@@ -923,14 +860,7 @@ export default function Single() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
+        </MobileWindow>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">

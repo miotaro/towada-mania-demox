@@ -1,18 +1,16 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Detail() {
   return (
     <>
-      <Head />
-
       <div className="page-flyer-detail">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -25,7 +23,7 @@ export default function Detail() {
                 <div className="page-head__inner">
                   <h1 className="page-head__text">チラシ</h1>
                   <div className="page-head__icon">
-                    <img src="../img/ph-icon_flyer.svg" width="100%" height="auto" alt="" />
+                    <img src="/img/ph-icon_flyer.svg" width="100%" height="auto" alt="" />
                   </div>
                 </div>
               </div>
@@ -33,23 +31,23 @@ export default function Detail() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
                     <meta itemProp="position" content="1" />
                   </li>
                   <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" aria-current="page">
-                    <a href="../flyer/" className="breadcrumb__item__page" itemProp="item" >
+                    <a href="/flyer" className="breadcrumb__item__page" itemProp="item" >
                     {/* href="https://technical-seo.jp/" */}
                       <span itemProp="name">チラシ</span>
                     </a>
                     <meta itemProp="position" content="2" />
                   </li>
                   <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" aria-current="page">
-                    <a href="../flyer/shop.html" className="breadcrumb__item__page" itemProp="item" >
+                    <a href="/flyer/shop" className="breadcrumb__item__page" itemProp="item" >
                     {/* href="https://technical-seo.jp/" */}
                       <span itemProp="name">トワダマニア商店チラシ</span>
                     </a>
@@ -141,7 +139,7 @@ export default function Detail() {
                 {/* <!-- /.tab-panels --> */}
 
                 <div className="flyer-btn-group">
-                  <a className="btn btn-md btn-secondary" href="../flyer/">チラシ一覧に戻る<span className="btn-arrow"></span></a>
+                  <a className="btn btn-md btn-secondary" href="/flyer">チラシ一覧に戻る<span className="btn-arrow"></span></a>
                 </div>
               </div>
 
@@ -151,15 +149,8 @@ export default function Detail() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />

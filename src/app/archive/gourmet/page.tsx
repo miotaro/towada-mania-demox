@@ -1,18 +1,17 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import PageHeadNav from "@/component/PageHeadNav";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Gourmet() {
   return (
     <>
-      <Head />
-
       <div className="page-archive">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -20,52 +19,15 @@ export default function Gourmet() {
           <BtmfixMenu current="null"/>
 
           <div className="content-body">
-            <main className="">
-              <div className="page-head phdc-bg --pink">
-                <div className="page-head__inner">
-                  <h1 className="page-head__text">記事</h1>
-                  <div className="page-head__icon">
-                    <img src="../../img/ph-icon_news.svg" width="100%" height="auto" alt="" />
-                  </div>
-                </div>
-                <nav className="page-head-navi splide" data-start="0">
-                  <div className="splide__track">
-                    <ul className="page-head-navi__list splide__list">
-                      <li className="page-head-navi__list-item splide__slide is-current" style={{ "--z-index": 8 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">記事</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 7 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">グルメ</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 6 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">イベント</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 5 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">温泉</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 4 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">町の人</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 3 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">お店</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 2 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">商品</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 1 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">メニュー</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
+            <main>
+              <PageHeadNav current="グルメ" />
 
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -83,11 +45,11 @@ export default function Gourmet() {
                   <a className="article-card__link" href="">
                     <div className="article-card__badge badge-new">
                       <span className="_text">NEW</span>
-                      <svg viewBox="0 0 53 53"><use href="../../img/badges.svg#badge-sm"></use></svg>
+                      <svg viewBox="0 0 53 53"><use href="/img/badges.svg#badge-sm"></use></svg>
                     </div>
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖紅葉フェスティバル」最高の思い出を十和田のイベントで</h2>
@@ -107,7 +69,7 @@ export default function Gourmet() {
                   <a className="article-card__link" href="">
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖フェスティバル」</h2>
@@ -129,11 +91,11 @@ export default function Gourmet() {
                   <a className="article-card__link" href="">
                     <div className="article-card__badge badge-new">
                       <span className="_text">NEW</span>
-                      <svg viewBox="0 0 53 53"><use href="../../img/badges.svg#badge-sm"></use></svg>
+                      <svg viewBox="0 0 53 53"><use href="/img/badges.svg#badge-sm"></use></svg>
                     </div>
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖紅葉フェスティバル」最高の思い出を十和田のイベントで</h2>
@@ -153,12 +115,12 @@ export default function Gourmet() {
                   <a className="article-card__link" href="">
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖フェスティバル」</h2>
                       <div className="post-contributor">
-                        <div className="_icon"><img className="u-cover-img" src="../../img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
+                        <div className="_icon"><img className="u-cover-img" src="/img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
                         <p className="_name">towadamania</p>
                       </div>
                     </div>
@@ -196,14 +158,7 @@ export default function Gourmet() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
+        </MobileWindow>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">

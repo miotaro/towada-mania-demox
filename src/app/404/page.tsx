@@ -1,17 +1,15 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function PrivacyPolicy() {
   return (
     <>
-      <Head />
-
       <div className="page-404">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -26,7 +24,7 @@ export default function PrivacyPolicy() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
                         <use href="img/logo_symbol.svg#logo"></use>
                       </svg>
@@ -49,7 +47,7 @@ export default function PrivacyPolicy() {
                   該当のページはアドレス変更、削除されたか、一時的にアクセスできない状況にある可能性があります。
                 </p>
                 <div className="btn-group">
-                  <a className="btn btn-md btn-primary" href="">ホームへ戻る<span className="btn-arrow"></span></a>
+                  <a className="btn btn-md btn-primary" href="/top">ホームへ戻る<span className="btn-arrow"></span></a>
                 </div>
               </section>
             </main>
@@ -58,15 +56,7 @@ export default function PrivacyPolicy() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">

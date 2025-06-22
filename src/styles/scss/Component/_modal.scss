@@ -5,7 +5,9 @@
 ========================================================================== */
 
 .modal {
-  display: none;
+  display: flex;
+  visibility: hidden;
+  // display: none;
   opacity: 0;
   width: var(--phone-w);
   height: var(--phone-h);
@@ -58,11 +60,13 @@
   }//&-body
 
   &.is-open {
-    display: flex;
+    visibility: visible;
+    // display: flex;
     opacity: 1;
     overscroll-behavior: contain;
-    pointer-events: auto;
-
+    &:has(.js-modal-close) {
+      pointer-events: auto;
+    }
     .modal-body {
       translate: 0 0;
       opacity: 1;
@@ -74,6 +78,7 @@
 .modal-overlay {
   display: none;
   opacity: 0;
+  // visibility: hidden;
   pointer-events: none;
   position: fixed;
   top: 0; left: 0;
@@ -88,11 +93,19 @@
     height: 100%;
     margin: 0;
   }
+}
 
-  &.is-show {
-    display: block;
-    opacity: 1;
+.is-modal-open {
+  .modal-overlay {
     pointer-events: auto;
+  }
+}
+
+.modal-overlay {
+  &.is-show {
+    // visibility: visible;
+    display: flex;
+    opacity: 1;
   }
   &.is-modal {
     transition-behavior: allow-discrete;
@@ -100,7 +113,7 @@
   }
 
   &.is-folder {
-    transition-behavior: allow-discrete;
+    // transition-behavior: allow-discrete;
     background-color: rgb(255 255 255 / .4);
     backdrop-filter: blur(10px);
   }

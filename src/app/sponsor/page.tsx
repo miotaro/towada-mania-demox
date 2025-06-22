@@ -1,18 +1,16 @@
-import Head from "@/head";
 import SlidePanel from "@/component/slidePanel";
 import PageLoader from "@/component/pageLoader";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Sponsor() {
   return (
     <>
-      <Head />
-
       <div className="page-sponsor">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -26,7 +24,7 @@ export default function Sponsor() {
                 <div className="page-head__inner">
                   <h1 className="page-head__text">スポンサー</h1>
                   <div className="page-head__icon">
-                    <img src="../img/ph-icon_sponsor.svg" width="100%" height="auto" alt="" />
+                    <img src="/img/ph-icon_sponsor.svg" width="100%" height="auto" alt="" />
                   </div>
                 </div>
               </div>
@@ -36,7 +34,7 @@ export default function Sponsor() {
                   <li className="breadcrumb__item">
                     <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -55,7 +53,7 @@ export default function Sponsor() {
                   <figure className="sponsor-table__item">
                     <a href="#" target="_blank">
                       <span className="_thumb">
-                        <img className="u-cover-img" src="../img/sponsor_sample01.webp" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/sponsor_sample01.webp" width="100%" height="auto" alt="" />
                       </span>
                       <figcaption className="_caption text-box-center">みずほ証券株式会社(Mizuho Securities Co., Ltd.)</figcaption>
                     </a>
@@ -63,7 +61,7 @@ export default function Sponsor() {
                   <figure className="sponsor-table__item">
                     <a href="#" target="_blank">
                       <span className="_thumb">
-                        <img className="u-cover-img" src="../img/sponsor_sample02.webp" width="100%" height="auto" alt="" />
+                        <img className="u-cover-img" src="/img/sponsor_sample02.webp" width="100%" height="auto" alt="" />
                       </span>
                       <figcaption className="_caption text-box-center">SMBC日興証券株式会社(SMBC Nikko Securities Inc.)</figcaption>
                     </a>
@@ -228,15 +226,8 @@ export default function Sponsor() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />

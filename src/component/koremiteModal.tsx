@@ -4,31 +4,39 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react'
 
 export default function KoremiteModal() {
-  const { isOpen, close } = useModalStore();
+  const isOpen = useModalStore((state) => state.modals.koremite);
+  const close = useModalStore((state) => state.close);
   const [show, setShow] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setShow(true);
+      const timer = setTimeout(() => setAnimate(true), 100);
+      return () => clearTimeout(timer);
     } else {
-      // クラスを消す前に少し待つ（CSSトランジションが終わるまで）
+      setAnimate(false);
       const timer = setTimeout(() => setShow(false), 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
-  if (!isOpen && !show) return null;
+  if (!show) return null;
 
   return (
     <>
+      <div 
+        className={`modal-overlay is-folder ${animate ? 'is-show' : ''}`} 
+        onClick={() => close('koremite')} tabIndex={-1}
+      />
+
       <div
-        className={`modal koremite-modal ${isOpen ? 'is-open' : ''}`}
+        className={`modal koremite-modal ${animate ? 'is-open' : ''}`}
         data-modal-id="koremite"
         aria-hidden={show ? 'false' : 'true'}
-        // style={{ display: 'flex' }}
       >
         <div className="modal-body">
-          <button type="button" className="modal-close js-modal-close" aria-label="Close modal" onClick={close}>
+          <button type="button" className="modal-close js-modal-close" aria-label="Close modal" onClick={() => close('koremite')}>
             <svg viewBox="0 0 14 14">
               <use href="#cross" />
             </svg>
@@ -67,8 +75,6 @@ export default function KoremiteModal() {
           </div>
         </div>
       </div>
-
-      <div className={`modal-overlay ${isOpen ? 'is-show' : ''}`} onClick={close} />
     </>
   );
 };

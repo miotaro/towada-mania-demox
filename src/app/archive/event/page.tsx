@@ -1,8 +1,10 @@
-import Head from "@/head";
+import Head from "@/component/head";
 import SlidePanel from "@/component/slidePanel";
 import PageLoader from "@/component/pageLoader";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import PageHeadNav from "@/component/PageHeadNav";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Event() {
   return (
@@ -12,7 +14,7 @@ export default function Event() {
       <div className="page-event">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -20,59 +22,23 @@ export default function Event() {
           <BtmfixMenu current="null"/>
 
           <div className="content-body">
-            <main className="">
-              <div className="page-head phdc-bg --orange">
-                <div className="page-head__inner">
-                  <h1 className="page-head__text">イベント</h1>
-                  <div className="page-head__icon">
-                    <img src="../../img/ph-icon_event.svg" width="100%" height="auto" alt="" />
-                  </div>
-                </div>
-                <nav className="page-head-navi splide" data-start="2">
-                  <div className="splide__track">
-                    <ul className="page-head-navi__list splide__list">
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 8 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">記事</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 7 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">グルメ</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide is-current" style={{ "--z-index": 6 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">イベント</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 5 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">温泉</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 4 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">町の人</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 3 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">お店</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 2 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">商品</span></a>
-                      </li>
-                      <li className="page-head-navi__list-item splide__slide" style={{ "--z-index": 1 } as unknown as React.CSSProperties}>
-                        <a href="../../../../archive/"><span className="_text">メニュー</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
+            <main>
+
+              <PageHeadNav current="イベント"/>
 
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
                     <meta itemProp="position" content="1" />
                   </li>
                   <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" aria-current="page">
-                    <a href="../../archive/" className="breadcrumb__item__page" itemProp="item">
+                    <a href="/archive" className="breadcrumb__item__page" itemProp="item">
                      {/* href="https://technical-seo.jp/" */}
                       <span itemProp="name">記事</span>
                     </a>
@@ -88,7 +54,7 @@ export default function Event() {
 
               <div className="events-intro gutter-container">
                 <h1 className="events-intro__title">
-                  <img src="../../img/event_cal_text.svg" width="100%" height="auto" alt="イベントカレンダー" />
+                  <img src="/img/event_cal_text.svg" width="100%" height="auto" alt="イベントカレンダー" />
                 </h1>
                 <p className="events-intro__text">
                   カレンダーの日付を選択すると、その日のイベント一覧を見ることができます。
@@ -101,7 +67,7 @@ export default function Event() {
                   <h2 className="bubchar-hdg__title --type-01">
                     <span className="_text">今日の<br/>イベントは<br/>何かな？</span>
                   </h2>
-                  <span className="bubchar-hdg__chara"><img src="../../img/character05.png" width="100%" height="auto" alt="" /></span>
+                  <span className="bubchar-hdg__chara"><img src="/img/character05.png" width="100%" height="auto" alt="" /></span>
                 </div>
                 {/* <!-- /.bubchar-hdg --> */}
                 <div className="events-calendar__inner gutter-container">
@@ -370,15 +336,8 @@ export default function Event() {
 
           <div className="modal-overlay" tabIndex={-1}></div>
 
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />

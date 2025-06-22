@@ -1,11 +1,13 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <footer className="site-footer">
         <div className="site-footer__inner">
 
           <div className="site-footer__logo">
-            <a href="../../">
+            <a href="/top">
               <svg viewBox="0 0 230 96" role="img" aria-label="トワダマニア">
                 <use href="/img/logo_type02_path.svg#logo"></use>
               </svg>
@@ -45,7 +47,7 @@ export default function Footer() {
               <a className="_btn" href="../../">利用規約</a>
             </li>
             <li className="site-footer__navi-item">
-              <a className="_btn" href="../../">プライバシーポリシー</a>
+              <a className="_btn" href="/privacy-policy">プライバシーポリシー</a>
             </li>
             <li className="site-footer__navi-item">
               <a className="_btn" href="../../">お問い合わせ</a>
@@ -55,7 +57,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          <p className="site-footer__copyright">©2024,トワダマニア</p>
+          <p className="site-footer__copyright">©{currentYear},トワダマニア</p>
         </div>
         <div className="site-footer__img"></div>
       </footer>

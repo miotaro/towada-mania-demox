@@ -1,16 +1,15 @@
-import Head from 'next/head';
 import '../styles/scss/mokuzi.scss'
 
 export default function Mokuzi() {
   return (
     <>
-      <Head>
+      <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no, address=no,email=no" />
         <title>トワダマニア | INDEX</title>
-      </Head>
+      </head>
 
       <div className="index-page">
         <div className="index-page-inr">

@@ -1,31 +1,30 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
+import PulldownBox from "@/component/pulldownBox";
 
 export default function Recruit() {
   return (
     <>
-      <Head />
-
       <div className="page-recruit">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
 
-          <BtmfixMenu current="recruit"/>
-          
+          <BtmfixMenu current="recruit" />
+
           <div className="content-body">
             <main className="">
               <div className="page-head phdc-bg --pink">
                 <div className="page-head__inner">
                   <h1 className="page-head__text">求人</h1>
                   <div className="page-head__icon">
-                    <img src="../img/ph-icon_recruit.svg" width="100%" height="auto" alt="" />
+                    <img src="/img/ph-icon_recruit.svg" width="100%" height="auto" alt="" />
                   </div>
                 </div>
               </div>
@@ -33,9 +32,9 @@ export default function Recruit() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -49,130 +48,132 @@ export default function Recruit() {
               {/* <!-- /.breadcrumb --> */}
 
               <div className="check-serchbox --cs-cool">
-                <div className="check-serchbox__item js-pulldown">
-                  <button type="button" className="check-serchbox__toggle js-pulldown__btn">
-                    <span className="_text">職種</span><span className="pd-cross-icon"></span>
-                  </button>
-                  <div className="js-pulldown__box">
-                    <div className="js-pulldown__box__inner">
-                      <ul className="check-serchbox__list">
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>広報・政治</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>日用品・食品</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>求人</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>車</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>住宅</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>買い取り</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>デリバリー</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>勉強会</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>アパレル</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>家具・家電</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- /.check-serchbox__item --> */}
-                <div className="check-serchbox__item js-pulldown">
-                  <button type="button" className="check-serchbox__toggle js-pulldown__btn">
-                    <span className="_text">雇用形態</span><span className="pd-cross-icon"></span>
-                  </button>
-                  <div className="js-pulldown__box">
-                    <div className="js-pulldown__box__inner">
-                      <ul className="check-serchbox__list">
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>広報・政治</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>日用品・食品</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>求人</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>車</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>住宅</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>買い取り</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>デリバリー</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>勉強会</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>アパレル</span>
-                          </label>
-                        </li>
-                        <li className="check-serchbox__list-item">
-                          <label className="label-checkbox">
-                            <input type="checkbox" name="" value="" /><span>家具・家電</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- /.check-serchbox__item --> */}
+                <PulldownBox
+                  pulldownName="recruitOccupation"
+                  className="check-serchbox__item"
+                  trigger={
+                    <button type="button" className="check-serchbox__toggle js-pulldown__btn">
+                      <span className="_text">職種</span><span className="pd-cross-icon"></span>
+                    </button>
+                  }
+                >
+                  <ul className="check-serchbox__list">
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>広報・政治</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>日用品・食品</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>求人</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>車</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>住宅</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>買い取り</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>デリバリー</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>勉強会</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>アパレル</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>家具・家電</span>
+                      </label>
+                    </li>
+                  </ul>
+                </PulldownBox>
+
+                <PulldownBox
+                  pulldownName="recruitType"
+                  className="check-serchbox__item"
+                  trigger={
+                    <button type="button" className="check-serchbox__toggle js-pulldown__btn">
+                      <span className="_text">雇用形態</span><span className="pd-cross-icon"></span>
+                    </button>
+                  }
+                >
+                  <ul className="check-serchbox__list">
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>広報・政治</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>日用品・食品</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>求人</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>車</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>住宅</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>買い取り</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>デリバリー</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>勉強会</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>アパレル</span>
+                      </label>
+                    </li>
+                    <li className="check-serchbox__list-item">
+                      <label className="label-checkbox">
+                        <input type="checkbox" name="" value="" /><span>家具・家電</span>
+                      </label>
+                    </li>
+                  </ul>
+                </PulldownBox>
+
                 <div className="btn-group">
                   <button type="button" className="btn btn-md btn-white btn-fulled js-uncheckAll">クリア</button>
                   <button type="submit" className="btn btn-md btn-primary btn-fulled">検索する</button>
@@ -211,7 +212,7 @@ export default function Recruit() {
                       <p className="_text">正社員</p>
                     </li>
                   </ul>
-                  <a className="recruit-card__btn" href="../recruit/detail.html">詳細を見る<span className="btn-arrow"></span></a>
+                  <a className="recruit-card__btn" href="/recruit/detail">詳細を見る<span className="btn-arrow"></span></a>
                 </article>
                 <article className="recruit-card">
                   <span className="recruit-head__label">NEW</span>
@@ -238,7 +239,7 @@ export default function Recruit() {
                       <p className="_text">正社員</p>
                     </li>
                   </ul>
-                  <a className="recruit-card__btn" href="../recruit/detail.html">詳細を見る<span className="btn-arrow"></span></a>
+                  <a className="recruit-card__btn" href="/recruit/detail">詳細を見る<span className="btn-arrow"></span></a>
                 </article>
                 <article className="recruit-card">
                   <span className="recruit-head__label">NEW</span>
@@ -265,7 +266,7 @@ export default function Recruit() {
                       <p className="_text">正社員</p>
                     </li>
                   </ul>
-                  <a className="recruit-card__btn" href="../recruit/detail.html">詳細を見る<span className="btn-arrow"></span></a>
+                  <a className="recruit-card__btn" href="/recruit/detail">詳細を見る<span className="btn-arrow"></span></a>
                 </article>
                 <article className="recruit-card">
                   <span className="recruit-head__label">NEW</span>
@@ -292,7 +293,7 @@ export default function Recruit() {
                       <p className="_text">正社員</p>
                     </li>
                   </ul>
-                  <a className="recruit-card__btn" href="../recruit/detail.html">詳細を見る<span className="btn-arrow"></span></a>
+                  <a className="recruit-card__btn" href="/recruit/detail">詳細を見る<span className="btn-arrow"></span></a>
                 </article>
               </div>
               {/* <!-- /.serch-result --> */}
@@ -314,14 +315,7 @@ export default function Recruit() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
+        </MobileWindow>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">

@@ -8,13 +8,13 @@ type MenuTypeProps = {
 }
 
 export default function BtmfixMenu({ current }: MenuTypeProps) {
-  const { open } = useModalStore();
+  const open = useModalStore((state) => state.open);
 
   const menuItems = [
     {
       key: 'home',
       label: 'ホーム',
-      href: '/',
+      href: '/top',
       svgId: 'home',
     },
     {
@@ -59,7 +59,7 @@ export default function BtmfixMenu({ current }: MenuTypeProps) {
         ))}
 
       {/* コレミテ中央 */}
-        <button type="button" className="menu-koremite-btn js-modal-open" data-modal-id="koremite" onClick={open}>
+        <button type="button" className="menu-koremite-btn js-modal-open" data-modal-id="koremite" onClick={() => open('koremite')}>
           <Image
             src="/img/koremite_btn_text.png"
             alt="コレミテ"

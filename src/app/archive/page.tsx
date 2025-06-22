@@ -1,44 +1,32 @@
-import Head from "@/head";
 import SlidePanel from "@/component/slidePanel";
 import PageLoader from "@/component/pageLoader";
 import PageHeadNav from "@/component/PageHeadNav";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Archive() {
   return (
     <>
-      <Head />
-
       <div className="page-archive">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
-
-          <div className="panel-overlay"></div>
 
           <BtmfixMenu current="article"/>
 
           <div className="content-body">
             <main>
-              <div className="page-head phdc-bg --pink">
-                <div className="page-head__inner">
-                  <h1 className="page-head__text">記事</h1>
-                  <div className="page-head__icon">
-                    <img src="/img/ph-icon_news.svg" width="100%" height="auto" alt="" />
-                  </div>
-                </div>
-
-                <PageHeadNav current="記事"/>
-              </div>
-
+              
+              <PageHeadNav current="記事"/>
+              
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -53,14 +41,14 @@ export default function Archive() {
 
               <div className="article-list">
                 <article className="article-card --card-lg " data-category="event">
-                  <a className="article-card__link" href="../archive/gourmet/single.html">
+                  <a className="article-card__link" href="/archive/gourmet/single">
                     <div className="article-card__badge badge-new">
                       <span className="_text">NEW</span>
-                      <svg viewBox="0 0 53 53"><use href="../img/badges.svg#badge-sm"></use></svg>
+                      <svg viewBox="0 0 53 53"><use href="/img/badges.svg#badge-sm"></use></svg>
                     </div>
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖紅葉フェスティバル」最高の思い出を十和田のイベントで</h2>
@@ -77,10 +65,10 @@ export default function Archive() {
                   </a>
                 </article>
                 <article className="article-card --card-sm " data-category="event">
-                  <a className="article-card__link" href="../archive/gourmet/single.html">
+                  <a className="article-card__link" href="/archive/gourmet/single">
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖フェスティバル」</h2>
@@ -99,14 +87,14 @@ export default function Archive() {
                   </a>
                 </article>
                 <article className="article-card --card-lg --PR" data-category="event">
-                  <a className="article-card__link" href="../archive/gourmet/single.html">
+                  <a className="article-card__link" href="/archive/gourmet/single">
                     <div className="article-card__badge badge-new">
                       <span className="_text">NEW</span>
-                      <svg viewBox="0 0 53 53"><use href="../img/badges.svg#badge-sm"></use></svg>
+                      <svg viewBox="0 0 53 53"><use href="/img/badges.svg#badge-sm"></use></svg>
                     </div>
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖紅葉フェスティバル」最高の思い出を十和田のイベントで</h2>
@@ -123,15 +111,15 @@ export default function Archive() {
                   </a>
                 </article>
                 <article className="article-card --card-sm --PR" data-category="event">
-                  <a className="article-card__link" href="../archive/gourmet/single.html">
+                  <a className="article-card__link" href="/archive/gourmet/single">
                     <p className="article-card__cat">イベント</p>
                     <figure className="article-card__thumb">
-                      <img className="u-cover-img" src="../img/01_sample.jpg" width="100%" height="auto" alt="" />
+                      <img className="u-cover-img" src="/img/01_sample.jpg" width="100%" height="auto" alt="" />
                     </figure>
                     <div className="article-card__ttlcont">
                       <h2 className="article-card__title">青森県十和田市で開催！秋の「十和田湖フェスティバル」</h2>
                       <div className="post-contributor">
-                        <div className="_icon"><img className="u-cover-img" src="../img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
+                        <div className="_icon"><img className="u-cover-img" src="/img/no_img_contributor01.webp" width="100%" height="auto" alt="" /></div>
                         <p className="_name">towadamania</p>
                       </div>
                     </div>
@@ -146,7 +134,7 @@ export default function Archive() {
                 </article>
                 <div className="banner-card">
                   <a className="banner-card__link" href="">
-                    <img src="../img/banner_sample.jpg" width="100%" height="auto" alt="" />
+                    <img src="/img/banner_sample.jpg" width="100%" height="auto" alt="" />
                   </a>
                 </div>
               </div>
@@ -169,15 +157,8 @@ export default function Archive() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />

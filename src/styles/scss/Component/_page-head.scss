@@ -45,15 +45,15 @@ body.is-ph-sticky {
   $this: &;
   height: var(--page-header-h);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid var(--color-navy);
   overflow-y: hidden;
   position: relative;
 
-
   &__inner {
-    position: relative;
+    position: absolute;
   }
 
   &__text {
@@ -99,6 +99,12 @@ body.is-ph-sticky {
       @include text-stroke(3, var(--color-orange));
     }
   }
+
+  // &.--white {
+  //   #{$this}__text {
+  //     @include text-stroke(3, var(--color-white));
+  //   }
+  // }
 }
 
 
@@ -111,7 +117,7 @@ body.is-ph-sticky {
 .page-head-navi {
   width: 100%;
   position: absolute;
-  left: 0; bottom: 0;
+  left: 0; bottom: -29;
   z-index: 4;
 
   &__list {
@@ -144,22 +150,7 @@ body.is-ph-sticky {
       border: 1px solid var(--color-navy);
       border-radius: 10px 10px 0 0;
       box-shadow: 3px 1px 0 var(--color-navy);
-    }
-
-    &:nth-child(4n+1) {
-      a { background-color: var(--color-yellow); }
-    }
-
-    &:nth-child(4n+2) {
-      a { background-color: var(--color-orange-a50); }
-    }
-
-    &:nth-child(4n+3) {
-      a { background-color: var(--color-blue-a50); }
-    }
-
-    &:nth-child(4n+4) {
-      a { background-color: var(--color-pink-a50); }
+      background-color: inherit;
     }
 
     &.is-current {

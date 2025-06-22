@@ -1,18 +1,16 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function Philosophy() {
   return (
     <>
-      <Head />
-
       <div className="page-philosophy">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -20,7 +18,7 @@ export default function Philosophy() {
           <BtmfixMenu current="null"/>
           
           <div className="content-body">
-            <main className="">
+            <main>
               <div className="page-head phdc-bg --pink">
                 <div className="page-head__inner">
                   <h1 className="page-head__text"><span className="_en">PHILOSOPHY</span><span className="_ja">フィロソフィ</span></h1>
@@ -30,9 +28,9 @@ export default function Philosophy() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -60,7 +58,7 @@ export default function Philosophy() {
                   <p>そんな熱狂の沼に引きずり込まれた<br />”トワダマニア” たちを増殖させる。</p>
                   <p>そして、スキを楽しむ人であふれる街にしていきたい。</p>
                   <figure>
-                    <img src="../img/philos_img01.webp" width="100%" height="100%" alt="" />
+                    <img src="/img/philos_img01.webp" width="100%" height="100%" alt="" />
                   </figure>
                 </section>
 
@@ -69,16 +67,16 @@ export default function Philosophy() {
                 <section className="philos-story">
                   <div className="philos-story__head">
                     <figure className="_kotosuki">
-                      <img src="../img/logo_kotosuki.svg" width="100%" height="100%" alt="コトスキデザイン" />
+                      <img src="/img/logo_kotosuki.svg" width="100%" height="100%" alt="コトスキデザイン" />
                     </figure>
                     <span className="_cross"></span>
                     <figure className="_be-cause">
-                      <img src="../img/logo_be_cause.svg" width="100%" height="100%" alt="株式会社ビーコーズ" />
+                      <img src="/img/logo_be_cause.svg" width="100%" height="100%" alt="株式会社ビーコーズ" />
                     </figure>
                   </div>
 
                   <figure className="philos-story__img --gc-fulled">
-                    <img src="../img/philos_img02.webp" width="100%" height="100%" alt="" />
+                    <img src="/img/philos_img02.webp" width="100%" height="100%" alt="" />
                   </figure>
 
                   <h2 className="philos-story__title">ヌマルトワダ</h2>
@@ -100,7 +98,7 @@ export default function Philosophy() {
 
                   <div className="philos-thought__designer">
                     <figure className="_logo">
-                      <img src="../img/logo_kotosuki.svg" width="100%" height="100%" alt="コトスキデザイン" />
+                      <img src="/img/logo_kotosuki.svg" width="100%" height="100%" alt="コトスキデザイン" />
                     </figure>
                     <div className="_title">
                       <p>コト∞スキデザイン<br />グラフィックデザイナー</p>
@@ -115,7 +113,7 @@ export default function Philosophy() {
                     </p>
                     <figure className="phtp-block__img --type01">
                       <svg viewBox="0 0 200 229" role="img" aria-label="トワダマニア">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                     </figure>
                     <p>
@@ -123,7 +121,7 @@ export default function Philosophy() {
                     </p>
                     <figure className="phtp-block__img --type02">
                       <svg viewBox="0 0 200 126" role="img" aria-label="トワダマニア">
-                        <use href="../img/logo_type01_path.svg#logo"></use>
+                        <use href="/img/logo_type01_path.svg#logo"></use>
                       </svg>
                     </figure>
                   </div>
@@ -134,7 +132,7 @@ export default function Philosophy() {
                       ウェブサイト全体に用いられた紺色から黄色へのグラデーションは、十和田地域が現在抱える課題から、将来に向けて明るく、希望に満ちた発展と成長を遂げていく様子を象徴的に表現しています。この色彩の変化は、現状からの脱却と、未来へのポジティブな変遷を視覚的に示唆するものです。
                     </p>
                     <figure className="phtp-block__img">
-                      <img src="../img/design_philos_img.webp" width="100%" height="100%" alt="" />
+                      <img src="/img/design_philos_img.webp" width="100%" height="100%" alt="" />
                     </figure>
                   </div>
 
@@ -144,7 +142,7 @@ export default function Philosophy() {
                       本ウェブサイトに登場する「マニア」とは、十和田の魅力に深く傾倒し、特異なこだわりや広範な知識を有する人々として描かれています。一般の視点からは、その熱意や知識量が際立ち、異質な存在として認識される可能性も考慮し、本ウェブサイトにおいては、彼らをある種、比喩的な表現を用いて提示しています。これは、彼らの持つ深い愛情と専門性を強調するための演出意図によるものです。
                     </p>
                     <figure className="phtp-block__img --chara">
-                      <img src="../img/character_4n_d.webp" width="100%" height="100%" alt="" />
+                      <img src="/img/character_4n_d.webp" width="100%" height="100%" alt="" />
                     </figure>
                   </div>
                 </section>
@@ -155,15 +153,8 @@ export default function Philosophy() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />

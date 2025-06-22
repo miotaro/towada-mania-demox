@@ -32,15 +32,10 @@ export default function PageLoader() {
       fixMenu.classList.add('is-show')
     }
 
-    const scrollAnime = () => {
-      // 必要に応じてここにも処理追加
-    }
-
     const run = async () => {
       await pageLoadingScreen()
       await topPageAnime()
       await contPageAnime()
-      scrollAnime()
     }
 
     run()

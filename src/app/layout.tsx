@@ -1,5 +1,6 @@
 import '../styles/scss/style.scss'
 import KoremiteModal from '@/component/koremiteModal'
+import Head from '@/component/head'
 
 export const metadata = {
   title: 'トワダマニア',
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head />
+      <head>
+        <Head />
+      </head>
       <body>
         {children}
         <KoremiteModal />

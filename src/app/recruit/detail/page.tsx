@@ -1,18 +1,16 @@
-import Head from "@/head";
 import PageLoader from "@/component/pageLoader";
 import SlidePanel from "@/component/slidePanel";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 
 export default function RecruitDetail() {
   return (
     <>
-      <Head />
-
       <div className="page-recruit">
         <PageLoader />
 
-        <div className="mobile-window">
+        <MobileWindow>
           <SlidePanel />
 
           <div className="panel-overlay"></div>
@@ -33,9 +31,9 @@ export default function RecruitDetail() {
               <div className="breadcrumb">
                 <ul className="breadcrumb__list" itemScope itemType="http://schema.org/BreadcrumbList">
                   <li className="breadcrumb__item">
-                    <a href="../../" className="breadcrumb__item__page _home">
+                    <a href="/top" className="breadcrumb__item__page _home">
                       <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">
-                        <use href="../img/logo_symbol.svg#logo"></use>
+                        <use href="/img/logo_symbol.svg#logo"></use>
                       </svg>
                       <span className="_text">HOME</span>
                     </a>
@@ -63,19 +61,19 @@ export default function RecruitDetail() {
                       <h1 className="recruit-head__title">明るく楽しく元気はつらつ！自由な環境でライフワークバランスを整えられる職場</h1>
                       <ul className="recruit-head__data recruit-dtl-section">
                         <li className="recruit-head__data-item">
-                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="../img/recruit-icon.svg#bag"></use></svg></div>
+                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="/img/recruit-icon.svg#bag"></use></svg></div>
                           <p className="_text">WEBデザイナー</p>
                         </li>
                         <li className="recruit-head__data-item">
-                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="../img/recruit-icon.svg#building"></use></svg></div>
+                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="/img/recruit-icon.svg#building"></use></svg></div>
                           <p className="_text">株式会社トワダマニア</p>
                         </li>
                         <li className="recruit-head__data-item">
-                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="../img/recruit-icon.svg#map-pin"></use></svg></div>
+                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="/img/recruit-icon.svg#map-pin"></use></svg></div>
                           <p className="_text">青森県十和田市</p>
                         </li>
                         <li className="recruit-head__data-item">
-                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="../img/recruit-icon.svg#user"></use></svg></div>
+                          <div className="_icon"><svg viewBox="0 0 20 20"><use href="/img/recruit-icon.svg#user"></use></svg></div>
                           <p className="_text">正社員</p>
                         </li>
                       </ul>
@@ -186,15 +184,8 @@ export default function RecruitDetail() {
 
           </div>
           {/* <!-- /.content-body --> */}
-        </div>
-        {/* <!-- /.mobile-window --> */}
-
-
-        <div className="dpc-mask"></div>
-        <div className="phone-frame"></div>
-        <div className="phone-btns btns-left"><span className="_btn"></span><span className="_btn"></span></div>
-        <div className="phone-btns btns-right"><span className="_btn"></span></div>
-
+        </MobileWindow>
+        
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-defs">
           <symbol viewBox="0 0 14 14" id="cross">
             <path d="M13.2,13.9l-6.2-6.2L.8,13.9l-.8-.7,6.2-6.2L0,.8.9,0l6.1,6.2L13.2,0l.8.7-6.2,6.2,6.2,6.2-.8.7Z" />
