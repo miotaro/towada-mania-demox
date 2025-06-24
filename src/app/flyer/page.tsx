@@ -6,6 +6,23 @@ import MobileWindow from "@/component/MobileWindow";
 import PulldownBox from "@/component/PulldownBox";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: '十和田市の最新チラシ情報｜トワダマニア',
+  description: '青森県十和田市のチラシ情報をまとめてチェック！トワダマニアが地域の情報を集めます！',
+  openGraph: {
+    title: '十和田市の最新チラシ情報｜トワダマニア',
+    description: '青森県十和田市のチラシ情報をまとめてチェック！トワダマニアが地域の情報を集めます！',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '十和田市の最新チラシ情報｜トワダマニア',
+    description: '青森県十和田市のチラシ情報をまとめてチェック！トワダマニアが地域の情報を集めます！',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function Flyer() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

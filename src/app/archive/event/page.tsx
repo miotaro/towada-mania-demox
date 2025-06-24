@@ -5,6 +5,23 @@ import Footer from "@/component/Footer";
 import PageHeadNav from "@/component/PageHeadNav";
 import MobileWindow from "@/component/MobileWindow";
 
+export const metadata = {
+  title: '十和田市のイベント情報カレンダー｜トワダマニア',
+  description: '青森県十和田市のイベント情報をカレンダーでチェック！お祭り・マルシェ・ライブ・ワークショップなど、地元で開催される旬なイベントを見逃さずに楽しもう。家族でも友人とでも、次のおでかけをトワダマニアで見つけよう。',
+  openGraph: {
+    title: '十和田市のイベント情報カレンダー｜トワダマニア',
+    description: '青森県十和田市のイベント情報をカレンダーでチェック！お祭り・マルシェ・ライブ・ワークショップなど、地元で開催される旬なイベントを見逃さずに楽しもう。家族でも友人とでも、次のおでかけをトワダマニアで見つけよう。',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '十和田市のイベント情報カレンダー｜トワダマニア',
+    description: '青森県十和田市のイベント情報をカレンダーでチェック！お祭り・マルシェ・ライブ・ワークショップなど、地元で開催される旬なイベントを見逃さずに楽しもう。家族でも友人とでも、次のおでかけをトワダマニアで見つけよう。',
+    images: ['/icons/favicon.ico.ico'],
+  }
+};
+
 export default function Event() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

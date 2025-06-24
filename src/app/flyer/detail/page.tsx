@@ -6,6 +6,23 @@ import MobileWindow from "@/component/MobileWindow";
 import TabPanel from "@/component/TabPanels";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: '{チラシ名}｜トワダマニア',
+  // description: '{チラシ説明}',
+  openGraph: {
+    title: '{チラシ名}｜トワダマニア',
+    // description: '{チラシ説明}',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '{チラシ名}｜トワダマニア',
+    // description: '{チラシ説明}',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function Detail() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

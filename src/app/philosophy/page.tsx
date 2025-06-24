@@ -5,12 +5,28 @@ import Footer from "@/component/Footer";
 import MobileWindow from "@/component/MobileWindow";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: 'トワダマニアの想い｜十和田をもっと好きになるきっかけを届けるローカルメディア',
+  description: 'トワダマニアは、青森県十和田市の“ディープな日常”を発信するローカルメディアです。私たちが大切にしているのは、「知ればきっと好きになる十和田」。この街で暮らす人の視点から、地域の魅力とストーリーを伝え、共に楽しむ仲間を増やしていきたい。そんな想いを綴りました。',
+  openGraph: {
+    title: 'トワダマニアの想い｜十和田をもっと好きになるきっかけを届けるローカルメディア',
+    description: 'トワダマニアは、青森県十和田市の“ディープな日常”を発信するローカルメディアです。私たちが大切にしているのは、「知ればきっと好きになる十和田」。この街で暮らす人の視点から、地域の魅力とストーリーを伝え、共に楽しむ仲間を増やしていきたい。そんな想いを綴りました。',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'トワダマニアの想い｜十和田をもっと好きになるきっかけを届けるローカルメディア',
+    description: 'トワダマニアは、青森県十和田市の“ディープな日常”を発信するローカルメディアです。私たちが大切にしているのは、「知ればきっと好きになる十和田」。この街で暮らす人の視点から、地域の魅力とストーリーを伝え、共に楽しむ仲間を増やしていきたい。そんな想いを綴りました。',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function Philosophy() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },
     { label: 'PHILOSOPHY' }, 
   ];
-
   return (
     <>
       <div className="page-philosophy">

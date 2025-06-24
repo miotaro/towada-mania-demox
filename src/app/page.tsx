@@ -1,5 +1,12 @@
 import '../styles/scss/mokuzi.scss'
 
+export const metadata = {
+  title: 'トワダマニア | INDEX',
+  openGraph: {
+    title: 'トワダマニア | INDEX',
+  },
+};
+
 export default function Mokuzi() {
   return (
     <>

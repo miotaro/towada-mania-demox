@@ -5,6 +5,23 @@ import Footer from "@/component/Footer";
 import MobileWindow from "@/component/MobileWindow";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: 'プライバシーポリシー｜トワダマニア',
+  // description: '-',
+  openGraph: {
+    title: 'プライバシーポリシー｜トワダマニア',
+    // description: '-',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'プライバシーポリシー｜トワダマニア',
+    // description: '-',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function PrivacyPolicy() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

@@ -6,6 +6,23 @@ import MobileWindow from "@/component/MobileWindow";
 import TabPanel from "@/component/TabPanels";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: '{求人タイトル}｜トワダマニア',
+  // description: '{求人説明}',
+  openGraph: {
+    title: '{求人タイトル}｜トワダマニア',
+    // description: '{求人説明}',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '{求人タイトル}｜トワダマニア',
+    // description: '{求人説明}',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function RecruitDetail() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

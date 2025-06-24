@@ -5,6 +5,23 @@ import Footer from "@/component/Footer";
 import MobileWindow from "@/component/MobileWindow";
 import Breadcrumb from "@/component/Breadcrumb";
 
+export const metadata = {
+  title: 'トワダマニアのスポンサー・広告協賛募集｜十和田の魅力を共に届けるパートナーを募集しています',
+  description: 'トワダマニアは、青森県十和田市のローカルメディアとして、地域の魅力を地元目線で発信しています。この取り組みに共感し、共に地域を盛り上げるスポンサー・パートナーを募集しています。広告掲載やプロジェクト連携など、ご一緒できる形を柔軟にご提案します。',
+  openGraph: {
+    title: 'トワダマニアのスポンサー・広告協賛募集｜十和田の魅力を共に届けるパートナーを募集しています',
+    description: 'トワダマニアは、青森県十和田市のローカルメディアとして、地域の魅力を地元目線で発信しています。この取り組みに共感し、共に地域を盛り上げるスポンサー・パートナーを募集しています。広告掲載やプロジェクト連携など、ご一緒できる形を柔軟にご提案します。',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'トワダマニアのスポンサー・広告協賛募集｜十和田の魅力を共に届けるパートナーを募集しています',
+    description: 'トワダマニアは、青森県十和田市のローカルメディアとして、地域の魅力を地元目線で発信しています。この取り組みに共感し、共に地域を盛り上げるスポンサー・パートナーを募集しています。広告掲載やプロジェクト連携など、ご一緒できる形を柔軟にご提案します。',
+    images: ['/icons/favicon.ico'],
+  }
+};
+
 export default function Sponsor() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },

@@ -1,17 +1,32 @@
-'use client'
 import SlidePanel from "@/component/SlidePanel";
 import PageLoader from "@/component/PageLoader";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Footer from "@/component/Footer";
-import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import PageHeadNav from "@/component/PageHeadNav";
 import EntryImageSlide from "@/component/EntryImageSlides";
 import PulldownBox from "@/component/PulldownBox";
 import MobileWindow from "@/component/MobileWindow";
 import Breadcrumb from "@/component/Breadcrumb";
+import MoreScroll from "@/component/MoreScroll";
+
+export const metadata = {
+  title: '{記事タイトル}｜トワダマニア',
+  description: '{記事説明}',
+  openGraph: {
+    title: '{記事タイトル}｜トワダマニア',
+    description: '{記事説明}',
+    // url: 'https://towada.jp/archive/event',
+    images: ['/icons/favicon.ico'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '{記事タイトル}｜トワダマニア',
+    description: '{記事説明}',
+    images: ['/icons/favicon.ico'],
+  }
+};
 
 export default function Single() {
-  useScrollFadeIn();
 
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },
@@ -19,7 +34,6 @@ export default function Single() {
     { label: 'グルメ', href: '/archive/gourmet' }, 
     { label: '記事の名前' }, 
   ];
-
   return (
     <>
       <div className="page-entry">
@@ -139,10 +153,7 @@ export default function Single() {
                   </article>
                   {/* <!-- /.entry-card --> */}
 
-
-                  <div className="more-scroll js-scroll-fadein" data-fade-type="blur-in">
-                    <img src="/img/more_scroll.webp" width="100%" height="auto" alt="もーっと詳しく知りたい" />
-                  </div>
+                  <MoreScroll />
 
                   <PulldownBox
                     pulldownName="singleMenu"
