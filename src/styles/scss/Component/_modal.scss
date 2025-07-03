@@ -61,7 +61,7 @@
 
   &.is-open {
     visibility: visible;
-    // display: flex;
+    display: flex;
     opacity: 1;
     overscroll-behavior: contain;
     &:has(.js-modal-close) {

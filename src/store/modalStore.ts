@@ -6,7 +6,7 @@ type ModalStore = {
   };
   open: (modalName: string) => void;
   close: (modalName: string) => void;
-  toggle: (modalName: string) => void;
+  toggle: (modalName: string) => void; //モーダルが開くきっかけは何か
 };
 
 export const useModalStore = create<ModalStore>((set) => ({

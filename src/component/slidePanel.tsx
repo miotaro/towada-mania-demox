@@ -39,11 +39,6 @@ export default function SlidePanel() {
     setIsOpen(false);
   };
 
-  // const handleDropdownClick = (e: React.MouseEvent<HTMLLIElement>) => {
-  //   const target = e.currentTarget.querySelector('.dropdown-menu');
-  //   if (target) target.classList.toggle('is-open');
-  // };
-
   return (
     <>
       <div className="panel-overlay" ref={overlayRef} onClick={handleOverlayClick} />

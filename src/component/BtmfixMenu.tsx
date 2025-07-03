@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import { useModalStore } from '@/store/modalStore';
 
-type MenuType = 'home' | 'article' | 'recruit' | 'flyer' | 'null';
+type MenuType = 'home' | 'article' | 'recruit' | 'flyer' | 'none';
 type MenuTypeProps = {
-  current: MenuType;
+  current?: MenuType;
 }
 
 export default function BtmfixMenu({ current }: MenuTypeProps) {
@@ -47,7 +47,7 @@ export default function BtmfixMenu({ current }: MenuTypeProps) {
             href={item.href}
           >
             <div className="menu-item__icon">
-              <span className="_badge"></span>
+              {/* <span className="_badge"></span> 新規のデータがあるとき*/}
               <div className="_icon">
                 <svg viewBox="0 0 40 30">
                   <use href={`/img/fix-menu-icon.svg#${item.svgId}`} />
@@ -77,7 +77,7 @@ export default function BtmfixMenu({ current }: MenuTypeProps) {
             href={item.href}
           >
             <div className="menu-item__icon">
-              <span className="_badge"></span>
+              {/* <span className="_badge"></span> 新規のデータがあるとき*/}
               <div className="_icon">
                 <svg viewBox="0 0 40 30">
                   <use href={`/img/fix-menu-icon.svg#${item.svgId}`} />
