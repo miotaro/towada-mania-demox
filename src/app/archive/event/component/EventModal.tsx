@@ -2,7 +2,7 @@
 import { useModalStore } from "@/store/modalStore";
 import { useEventDateStore } from "@/store/selectedEventStore";
 import { eventData } from "@/data/eventData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function EventModal() {
   const isOpen = useModalStore((state) => state.modals.event);
@@ -11,23 +11,37 @@ export default function EventModal() {
 
   const [show, setShow] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        close("event");
+      }
+    };
+
     if (isOpen) {
-      console.log(isOpen);
       setShow(true);
       const timer = setTimeout(() => setAnimate(true), 100);
-      return () => clearTimeout(timer);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
     } else {
       setAnimate(false);
       const timer = setTimeout(() => setShow(false), 300);
       return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isOpen, close]);
 
   if (!selectedDate) return null;
   const eventForDate = eventData.find(event => event.date === selectedDate);
   if (!eventForDate || !isOpen) return null;
-  const [month, day] = selectedDate.split("-").slice(1);
+
+  const dateParts = selectedDate.split("-");
+  const month = parseInt(dateParts[1], 10);
+  const day = parseInt(dateParts[2], 10);
 
   return (
     <>
@@ -35,13 +49,13 @@ export default function EventModal() {
         className={`modal-overlay is-folder ${animate ? 'is-show' : ''}`}
         onClick={() => close('event')}
         tabIndex={-1}
-      />
+      ></div>
       <div
         className={`modal event-modal ${animate ? 'is-open' : ''}`}
         data-modal-id={selectedDate}
         aria-hidden={show ? 'false' : 'true'}
       >
-        <div className="modal-body fade">
+        <div className="modal-body fade" ref={modalRef}>
           <button
             type="button"
             className="modal-close js-modal-close"

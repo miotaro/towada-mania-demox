@@ -2,23 +2,30 @@
 import { useEffect, useRef } from 'react'  
 
 export default function PageLoader() {
+  //ページ全体のトランジション画面を操作するために使う
   const loaderRef = useRef<HTMLDivElement | null>(null)
+  //アニメーションキャラクターの部分
   const charaRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
+    //
     const pageLoadingScreen = async () => {
       if (!loaderRef.current || !charaRef.current) return
       await sleep(500)
+      //少し待ってからキャラを止める
       charaRef.current.classList.add('is-stop')
       await sleep(1500)
+      //ローダーに.is-loadedを追加
       loaderRef.current.classList.add('is-loaded')
       await sleep(1000)
+      //画面から隠す
       loaderRef.current.style.display = 'none'
       loaderRef.current.classList.remove('is-loaded')
     }
 
+    //home-mainにis-activeを付与してアニメーション開始
     const topPageAnime = async () => {
       const homeMain = document.querySelector('.home-main')
       if (!homeMain) return
@@ -26,6 +33,7 @@ export default function PageLoader() {
       homeMain.classList.add('is-active')
     }
 
+    //フッターの登場アニメーション
     const contPageAnime = async () => {
       const fixMenu = document.querySelector('.btmfix-menu')
       if (!fixMenu) return
@@ -47,6 +55,7 @@ export default function PageLoader() {
 
   if (!transitionEl || !chara) return
 
+   //ブラウザの「戻る」「進む」で表示されたとき
   const onPageShow = (event: PageTransitionEvent) => {
     const navEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
     if (event.persisted || navEntry?.type === "back_forward") {
@@ -61,15 +70,18 @@ export default function PageLoader() {
     }
   }
 
+  //aタグだったとき、条件付きアニメーション遷移
   const onClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement
     const link = target.closest('a') as HTMLAnchorElement | null
-
     if (
       link &&
+      //外部リンクではない
       link.href &&
+      //target="_blank"ではない
       link.target !== '_blank' &&
       link.hostname === location.hostname &&
+      //#ハッシュリンクではない
       !link.hash
     ) {
       e.preventDefault()
@@ -96,12 +108,12 @@ export default function PageLoader() {
   return (
     <>
       <div className="page-transition" ref={loaderRef}>
-        <div className="transition-mask --navy">
-          {/* <!-- <div className="_logo"><img src="img/logo_type01_w.svg" width="100%" height="auto" alt=""></div> --> */}
-        </div>
+        {/* マスクアニメーション */}
+        <div className="transition-mask --navy"></div>
         <div className="transition-mask --pink"></div>
         <div className="transition-mask --orange"></div>
         <div className="transition-mask --yellow"></div>
+        {/* キャラ＋吹き出し */}
         <div className="transition-loader" ref={charaRef}>
           <div className="_inner">
             <div className="_chara"><img src="/img/loader_chara.png" width="100%" height="auto" alt="" /></div>
@@ -114,7 +126,6 @@ export default function PageLoader() {
             </div>
           </div>
         </div>
-        {/* <!-- /.page-transition__loader --> */}
       </div>
     </>
   )

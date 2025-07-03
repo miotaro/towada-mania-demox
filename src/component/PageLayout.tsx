@@ -48,6 +48,7 @@ export default function PageLayout({
           <BtmfixMenu current={currentMenu} />
           <div className="content-body">
             {banner && <>{banner}</>}
+            {/* スポンサーだけ独特の背景 */}
             {sponsorClass && <div className="sponsor-fix-bg">{sponsorClass}</div>}
             <main>
               <PageHeadNav 

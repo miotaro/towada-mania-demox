@@ -26,6 +26,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
               aria-current={isLast ? 'page' : undefined}
             >
               {item.href && !isLast ? (
+                //アイコンもリンクにしたいとき
                 <Link href={item.href} className={`breadcrumb__item__page ${index === 0 ? '_home' : ''}`} itemProp="item">
                   {index === 0 && (
                     <svg className="_icon" viewBox="0 0 200 229" role="img" aria-label="">

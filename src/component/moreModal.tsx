@@ -1,24 +1,35 @@
 'use client'
 import { useModalStore } from "@/store/modalStore";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function MoreModal() {
   const isOpen = useModalStore((state) => state.modals.more);
   const close = useModalStore((state) => state.close);
   const [show, setShow] = useState(false);
   const [animate, setAnimate] = useState(false);
-
+  const modalRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
-      if (isOpen) {
-        setShow(true);
-        const timer = setTimeout(() => setAnimate(true), 100)
-        return () => clearTimeout(timer);
-      } else {
-        setAnimate(false);
-        const timer = setTimeout(() => setShow(false), 300);
-        return () => clearTimeout(timer);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        close("more");
       }
-    }, [isOpen]);
+    };
+
+    if (isOpen) {
+      setShow(true);
+      const timer = setTimeout(() => setAnimate(true), 100)
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+    } else {
+      setAnimate(false);
+      const timer = setTimeout(() => setShow(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
   
     if (!show) return null;
 
@@ -34,7 +45,7 @@ export default function MoreModal() {
         data-modal-type="folder"
         aria-hidden={show ? 'false' : 'true'}
       >
-        <div className="modal-body">
+        <div className="modal-body" ref={modalRef}>
           <button type="button" className="modal-close js-modal-close" aria-label="Close modal" onClick={() => close('more')}>
             <svg viewBox="0 0 14 14"><use href="#cross"></use></svg>
           </button>

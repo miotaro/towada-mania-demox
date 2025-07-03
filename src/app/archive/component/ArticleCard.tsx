@@ -1,4 +1,4 @@
-import NewMark from "./NewMark";
+import NewMark from "../../../component/NewMark";
 
 type ArticleCardProps = {
   size?: "lg" | "sm";

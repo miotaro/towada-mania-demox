@@ -1,19 +1,30 @@
 'use client';
 import { useModalStore } from '@/store/modalStore';
 import Image from 'next/image';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function KoremiteModal() {
   const isOpen = useModalStore((state) => state.modals.koremite);
   const close = useModalStore((state) => state.close);
   const [show, setShow] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        close("koremite");
+      }
+    };
+
     if (isOpen) {
       setShow(true);
       const timer = setTimeout(() => setAnimate(true), 100);
-      return () => clearTimeout(timer);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
     } else {
       setAnimate(false);
       const timer = setTimeout(() => setShow(false), 300);
@@ -35,7 +46,7 @@ export default function KoremiteModal() {
         data-modal-id="koremite"
         aria-hidden={show ? 'false' : 'true'}
       >
-        <div className="modal-body">
+        <div className="modal-body" ref={modalRef}>
           <button type="button" className="modal-close js-modal-close" aria-label="Close modal" onClick={() => close('koremite')}>
             <svg viewBox="0 0 14 14">
               <use href="#cross" />
