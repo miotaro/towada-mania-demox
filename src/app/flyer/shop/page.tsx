@@ -1,7 +1,6 @@
 import PageLayout from "@/component/PageLayout";
 import TowadamaniaShopTitle from "@/component/TowadamaniaShopTitle";
 import FlyerList from "../component/FlyerList";
-import Button from "@/component/Button";
 import FlyerButton from "../component/FlyerButton";
 
 export const metadata = {

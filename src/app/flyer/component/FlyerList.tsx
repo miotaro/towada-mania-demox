@@ -1,6 +1,5 @@
 import { flyerItems } from "@/data/flyerItems";
 import FlyerCard from "./FlyerCard";
-import { LargeNumberLike } from "crypto";
 
 type Props = {
   limit?: number;

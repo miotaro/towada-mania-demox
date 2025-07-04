@@ -1,7 +1,7 @@
 export const flyerItems = [
   {
     size: "lg",
-    imageSrc: "/img/01_sample.jpg",
+    imageSrc: "/img/sample_flyer_01.jpg",
     isNew: true,
     title: "冬の味覚フェア",
     dateRange: "2025年6月20日〜30日",
@@ -9,7 +9,7 @@ export const flyerItems = [
   },
   {
     size: "sm",
-    imageSrc: "/img/01_sample.jpg",
+    imageSrc: "/img/sample_flyer_02.jpg",
     isNew: true,
     title: "冬の味覚フェア",
     dateRange: "2025年0月0日〜0日",
@@ -17,7 +17,7 @@ export const flyerItems = [
   },
   {
     size: "sm",
-    imageSrc: "/img/01_sample.jpg",
+    imageSrc: "/img/sample_flyer_03.jpg",
     isNew: false,
     title: "冬の味覚フェア",
     dateRange: "2025年0月0日〜0日",

@@ -1,10 +1,9 @@
-export default function SecondTabPanel() {
+import TowadamaniaShopTitle from "@/component/TowadamaniaShopTitle"
+
+export default function ShopInfoTabPanel() {
   return (
     <div>
-      <div className="shop-head">
-        <span className="shop-head__thumb"><img className="u-cover-img" src="../img/no_img_contributor03.webp" width="100%" height="auto" alt="" /></span>
-        <h2 className="shop-head__title">トワダマニア商店</h2>
-      </div >
+      <TowadamaniaShopTitle />
       <dl className="sb-info-table dl-table">
         <div className="_row">
           <dt className="_head">業種</dt>

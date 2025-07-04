@@ -4,6 +4,7 @@ import FlyerList from "./FlyerList";
 export default function ShopResultCard() {
   return (
     <section className="shop-result__card">
+      {/* 会社(ショップ)モデルから */}
       <TowadamaniaShopTitle />
       <FlyerList limit={4}/>
 

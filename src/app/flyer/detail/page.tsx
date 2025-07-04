@@ -1,7 +1,7 @@
 import TabPanel from "@/component/TabPanels";
 import PageLayout from "@/component/PageLayout";
-import FirstTabPanel from "./component/FirstTabPanel";
-import SecondTabPanel from "./component/SecondTabPanel";
+import FlyerTabPanel from "../component/FlyerTabPanel";
+import ShopInfoTabPanel from "../component/ShopInfoTabPanel";
 import FlyerButton from "../component/FlyerButton";
 
 export const metadata = {
@@ -48,8 +48,8 @@ export default function Detail() {
           ]}
         >
 
-          <FirstTabPanel />
-          <SecondTabPanel />
+          <FlyerTabPanel />
+          <ShopInfoTabPanel />
           
         </TabPanel>
         <FlyerButton />

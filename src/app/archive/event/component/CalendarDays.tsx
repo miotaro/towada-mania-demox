@@ -39,18 +39,18 @@ export default function CalendarDays({
     // その日付にイベントがあるかを判定
     const hasEvent = eventData.some(event => event.date === isoDate);
 
-    const numberClassNames = `cld-number${hasEvent ? " eventday" : ""}`;
-
     // 前月・次月の日付は空白として表示（クラスで見えなくする）
     if (!isCurrentMonth && date < new Date(year, month, 1)) {
       return (
         <div key={index} className="cld-day prevMonth">
+          {/* 空白マス */}
           <p className="cld-number"></p>
         </div>
       );
     } else if (!isCurrentMonth && date > new Date(year, month, daysInMonth)) {
       return (
         <div key={index} className="cld-day nextMonth">
+          {/* 空白マス */}
           <p className="cld-number"></p>
         </div>
       );
@@ -60,6 +60,7 @@ export default function CalendarDays({
     let classNames = "cld-day";
     if (isToday(date) && isCurrentMonth) classNames += " today";
     if (isPastDate(date)) classNames += " event-end";
+    const numberClassNames = `cld-number ${hasEvent ? "eventday" : ""}`;
 
     const eventsForDay = events.filter(event =>
       event.date.getFullYear() === date.getFullYear() &&

@@ -30,6 +30,7 @@ export default function Calendar({onRendered}: CalendarProps) {
   
   const {
     today,
+    //選択している日付
     selectedDate,
     year,
     month,
@@ -43,6 +44,7 @@ export default function Calendar({onRendered}: CalendarProps) {
     event.events.map(e => ({
       title: e.title,
       date: new Date(event.date),
+      //この形式{ title: "夏祭り", date: new Date("2025-07-20") },
     }))
   );
 
