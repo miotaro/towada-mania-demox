@@ -18,6 +18,10 @@
 
 .article-list {
   border-bottom: 1px solid var(--color-navy);
+  &__empty {
+    font-size: 1.5rem;
+    padding: 5rem;
+  }
 }
 
 

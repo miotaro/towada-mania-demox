@@ -1,6 +1,7 @@
 import PageLayout from "@/component/PageLayout";
 import Pagination from "@/component/Pagination";
 import ArticleList from "./component/ArticleList";
+import { fetchArticles } from "@/lib/api/article";
 
 export const metadata = {
   title: '十和田の観光・グルメ・暮らしのマニア情報｜トワダマニア',
@@ -20,11 +21,14 @@ export const metadata = {
 };
 
 
-export default function Archive() {
+export default async function Archive() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },
     { label: '記事' },
   ];
+
+  const articles = await fetchArticles();
+  
   return (
     <>
       <PageLayout
@@ -34,7 +38,7 @@ export default function Archive() {
         useSplideNav={true}
         breadcrumbItems={breadcrumbItems}
       >
-        <ArticleList />
+        <ArticleList articles={articles} />
         <Pagination currentPage={1} totalPages={1}/>
       </PageLayout>
     </>
