@@ -7,16 +7,16 @@ export default function SlidePanel() {
   const currentYear = new Date().getFullYear();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isPulldownOpen, setIsPulldownOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    bodyRef.current = document.body;
-    const body = bodyRef.current;
+    bodyRef.current = document.body;//HTML全体の本体部分
+    const body = bodyRef.current; //Reactの参照オブジェクト
 
     if (isOpen) {
+      //<body>のこと。少し遅れて開く
       body?.classList.add('is-slidePanel-open', 'is-no-scroll');
       if (overlayRef.current) overlayRef.current.style.display = 'block';
       setTimeout(() => {
@@ -32,6 +32,7 @@ export default function SlidePanel() {
   }, [isOpen]);
 
   const handleToggle = () => {
+    //prev：現在のisOpenの値を示す一時変数
     setIsOpen((prev) => !prev);
   };
 

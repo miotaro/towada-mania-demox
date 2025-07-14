@@ -1,6 +1,7 @@
 import PageLayout from "@/component/PageLayout";
 import Pagination from "@/component/Pagination";
 import ArticleList from "../component/ArticleList";
+import { fetchArticles } from "@/lib/api/article";
 
 export const metadata = {
   title: '十和田市のおすすめ {記事カテゴリ} 情報まとめ｜トワダマニア',
@@ -19,11 +20,13 @@ export const metadata = {
   }
 };
 
-export default function Gourmet() {
+export default async function Gourmet() {
   const breadcrumbItems = [
     { label: 'HOME', href: '/top' },
     { label: '記事' },
   ];
+
+  const articles = await fetchArticles();
 
   return (
     <>
@@ -34,7 +37,7 @@ export default function Gourmet() {
         useSplideNav={true}
         breadcrumbItems={breadcrumbItems}
       >
-        <ArticleList />
+        <ArticleList articles={articles}/>
         <Pagination currentPage={1} totalPages={1}/>
       </PageLayout>
     </>

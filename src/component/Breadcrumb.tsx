@@ -5,7 +5,7 @@ type BreadcrumbItem = {
   label: string;
   href?: string; 
 };
-
+//オブジェクトだから
 type BreadcrumbProps = {
   items: BreadcrumbItem[];
 };

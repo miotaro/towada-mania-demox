@@ -7,7 +7,7 @@ type EventDateStore = {
 };
 
 export const useEventDateStore = create<EventDateStore>((set) => ({
-  selectedEventDate: null,
-  setEventDate: (date) => set({ selectedEventDate: date }),
-  clearEventDate: () => set({ selectedEventDate: null }),
+  selectedEventDate: null, //初期状態
+  setEventDate: (date) => set({ selectedEventDate: date }), //日付を更新
+  clearEventDate: () => set({ selectedEventDate: null }), 
 }));

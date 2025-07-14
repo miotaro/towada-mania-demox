@@ -17,7 +17,7 @@ export default function EventsCalendar() {
       todayFrame?.style.setProperty("display", "none");
       return;
     }
-
+    //cld-numberからISO形式の日付を取得
     const todayDateStr = numberEl.dataset.date;
     if (!todayDateStr) {
       todayFrame.style.display = 'none';
@@ -28,11 +28,12 @@ export default function EventsCalendar() {
     const todayMonth = date.getUTCMonth();
     const todayYear = date.getUTCFullYear();
 
+    //今日の日付じゃないなら
     if (todayMonth !== displayMonth || todayYear !== displayYear) {
       todayFrame.style.display = 'none';
       return;
     }
-
+    //位置とサイズを取得するメソッド
     const dayRect = todayEl.getBoundingClientRect();
     const calendarRect = calendarEl.getBoundingClientRect();
 
@@ -49,7 +50,7 @@ export default function EventsCalendar() {
   return (
     <>
       <div className="events-calendar">
-        <div className="today-frame"></div>
+        <div className="today-frame">{/* 今日のフレーム */}</div>
         <div className="bubchar-hdg --left">
           <h2 className="bubchar-hdg__title --type-01">
             <span className="_text">今日の<br />イベントは<br />何かな？</span>

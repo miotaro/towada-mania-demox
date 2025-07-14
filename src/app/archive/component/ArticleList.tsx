@@ -1,4 +1,4 @@
-// import { articles } from "@/data/articles";
+// import { articles } from "@/data/articles"; //記事模擬データ
 import ArticleCard from "@/app/archive/component/ArticleCard";
 import BannerCard from "@/component/BannerCard";
 import { Article } from "@/lib/types/article";

@@ -25,6 +25,7 @@ function isPastDate(date: Date) {
 
 export default function Calendar({onRendered}: CalendarProps) {
   useEffect(() => {
+    //レンダリングされましたよの合図
     onRendered?.();
   });
   

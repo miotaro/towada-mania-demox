@@ -6,11 +6,14 @@ import { useEffect, useState, useRef } from 'react'
 export default function KoremiteModal() {
   const isOpen = useModalStore((state) => state.modals.koremite);
   const close = useModalStore((state) => state.close);
+  //表示そのものの状態
   const [show, setShow] = useState(false);
+  //アニメーションの状態
   const [animate, setAnimate] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    //modalの外側クリックでとじる
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         close("koremite");
@@ -19,9 +22,10 @@ export default function KoremiteModal() {
 
     if (isOpen) {
       setShow(true);
+      //表示直後はCSSが反映されないので、少し遅らす
       const timer = setTimeout(() => setAnimate(true), 100);
       document.addEventListener("mousedown", handleClickOutside);
-      return () => {
+      return () => {//クリーンアップ関数。使ったものを片付け
         clearTimeout(timer);
         document.removeEventListener("mousedown", handleClickOutside);
       }
@@ -30,7 +34,7 @@ export default function KoremiteModal() {
       const timer = setTimeout(() => setShow(false), 300);
       return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isOpen]);//依存配列。isOpenが変化した時だけ処理実行
 
   if (!show) return null;
 

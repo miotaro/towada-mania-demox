@@ -57,12 +57,16 @@ export default function PageLoader() {
 
    //ブラウザの「戻る」「進む」で表示されたとき
   const onPageShow = (event: PageTransitionEvent) => {
+    //ページがどうやって表示されたか
     const navEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    //戻るキャッシュor戻る・進むで遷移
     if (event.persisted || navEntry?.type === "back_forward") {
       transitionEl.classList.remove('is-transition')
       transitionEl.classList.add('is-loaded')
+      //スクロール禁止を解除
       document.body.classList.remove('is-no-scroll')
       chara.classList.remove('is-start')
+      //トランジション用のDOMを非表示に
       setTimeout(() => {
         transitionEl.style.display = 'none'
         transitionEl.classList.remove('is-loaded')
