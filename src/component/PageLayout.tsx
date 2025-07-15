@@ -1,10 +1,10 @@
-import SlidePanel from "@/component/SlidePanel";
-import PageLoader from "@/component/PageLoader";
+import SlidePanel from "@/component/slidePanel";
+import PageLoader from "@/component/pageLoader";
 import PageHeadNav from "@/component/PageHeadNav";
 import BtmfixMenu from "@/component/BtmfixMenu";
 import Breadcrumb from "@/component/Breadcrumb";
-import Footer from "@/component/Footer";
-import MobileWindow from "@/component/MobileWindow";
+import Footer from "@/component/footer";
+import MobileWindow from "@/component/mobileWindow";
 import { ReactNode } from "react";
 
 type BreadcrumbItem = {

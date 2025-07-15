@@ -1,5 +1,5 @@
 import '../styles/scss/style.scss'
-import KoremiteModal from '@/component/KoremiteModal'
+import KoremiteModal from '@/component/koremiteModal'
 
 export default function RootLayout({
   children,

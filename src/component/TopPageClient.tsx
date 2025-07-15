@@ -1,9 +1,9 @@
 'use client'
-import SlidePanel from '@/component/SlidePanel'
-import PageLoader from '@/component/PageLoader'
-import MoreModal from '@/component/MoreModal'
+import SlidePanel from '@/component/slidePanel'
+import PageLoader from '@/component/pageLoader'
+import MoreModal from '@/component/moreModal'
 import { useModalStore } from '@/store/modalStore'
-import MobileWindow from '@/component/MobileWindow'
+import MobileWindow from '@/component/mobileWindow'
 
 export default function TopPageClient() {
   const open = useModalStore((state) => state.open);
