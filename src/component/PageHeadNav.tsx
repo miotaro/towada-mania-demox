@@ -47,15 +47,19 @@ export default function PageHeadNav({
     main.classList.add('has-ph-navi');
 
     const banner = document.querySelector('.content-body > .banner') as HTMLElement;
+    //バナーの高さを取得。なければ０
     const bnrH = banner ? banner.offsetHeight : 0;
     pageHead.style.setProperty('--banner-h', `${bnrH}px`);
 
+    //pageHeadのすぐ下の兄弟要素を取得
     const nextElem = pageHead.nextElementSibling as HTMLElement;
     const pageHeadNavi = pageHead.querySelector('.page-head-navi') as HTMLElement;
     if (!nextElem || !pageHeadNavi) return;
 
     const rmt = pageHeadNavi.offsetHeight;
+    //page-head-naviの高さ
     const pnHeight = pageHead.offsetHeight - nextElem.offsetHeight;
+    //
     const options = {
       root: null,
       rootMargin: `${-pnHeight - 1}px 0px 0px 0px`, // ← -1px で微調整もOK

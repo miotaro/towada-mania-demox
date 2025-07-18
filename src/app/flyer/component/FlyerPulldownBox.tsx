@@ -1,4 +1,4 @@
-import PulldownBox from "@/component/PulldownBox"
+import PulldownBox from "@/component/pulldownBox"
 
 export default function FlyerPulldownBox() {
   return (

@@ -22,9 +22,10 @@ export default function TabPanel({
   const [activeTab, setActiveTab] = useState(defaultTabId || tabButtons[0]?.id);
 
   useEffect(() => {
+    //今のタブに対応するパネルを探す
     const currentPanel = document.querySelector(`[data-tab-id="${activeTab}"]`) as HTMLElement;
     if (currentPanel) {
-      const height = currentPanel.offsetHeight;
+      const height = currentPanel.offsetHeight; //要素の高さを取得
       currentPanel.style.setProperty('--panel-h', `${height}px`);
     }
   }, [activeTab]);
