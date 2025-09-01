@@ -69,6 +69,19 @@
       rotate: 45deg;
       translate: 15% 0;
     }
+    &.is-disabled {
+      pointer-events: none;        // クリックできなくする
+      opacity: 0.3;                // 見た目で無効っぽくする
+      cursor: default;             // カーソルも変える
+
+      &::before {
+        border-color: var(--color-gray); // アイコンの色も薄く
+      }
+
+      &:hover {
+        background-color: transparent; // ホバーしても色が変わらないように
+      }
+    }
   }
 
   &__next {
@@ -76,6 +89,19 @@
       border-right: 1px solid var(--color-navy);
       rotate: -45deg;
       translate: -15% 0;
+    }
+    &.is-disabled {
+      pointer-events: none; 
+      opacity: 0.3;
+      cursor: default;
+
+      &::before {
+        border-color: var(--color-gray);
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+'use client'
 type Props = {
   currentPage: number;
   totalPages: number;
@@ -9,9 +10,12 @@ export default function Pagination({ currentPage, totalPages }: Props) {
   return (
     <nav className="pagination" role="navigation" aria-label="pagination">
       <a
-        className="pagination__prev"
-        href={`?page=${currentPage - 1}`}
+        className={`pagination__prev ${currentPage === 1 ? "is-disabled" : ""}`}
+        href={currentPage === 1 ? undefined : `?page=${currentPage - 1}`}
         aria-disabled={currentPage === 1}
+        onClick={(e) => {
+          if (currentPage === 1) e.preventDefault(); // クリック無効化
+        }}
       />
 
       <ul className="pagination__list">
@@ -28,9 +32,12 @@ export default function Pagination({ currentPage, totalPages }: Props) {
       </ul>
 
       <a
-        className="pagination__next"
-        href={`?page=${currentPage + 1}`}
+        className={`pagination__next ${currentPage === totalPages ? "is-disabled" : ""}`}
+        href={currentPage === totalPages ? undefined : `?page=${currentPage + 1}`}
         aria-disabled={currentPage === totalPages}
+        onClick={(e) => {
+          if (currentPage === totalPages) e.preventDefault();
+        }}
       />
     </nav>
   );
